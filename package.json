@@ -3,6 +3,6 @@
     "gh-pages": "^6.3.0"
   },
   "scripts": {
-  "deploy": "gh-pages -d salpakan-imperium"
+  "deploy": "gh-pages -d build"
 }
 }
