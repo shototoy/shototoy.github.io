@@ -10,8 +10,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #1a1a1a;
-  color: #2a2a2a;
+  background: #0a0a0a;
+  color: #e0e0e0;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -30,11 +30,14 @@ section.reveal {
   transform: translateY(0);
 }
 
+/* ============================================
+   HEADER - Blood and Steel
+   ============================================ */
 header {
-  background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-  color: #2a2a2a;
+  background: 
+    radial-gradient(ellipse at top, rgba(139, 0, 0, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #1a0505 0%, #0d0000 50%, #000000 100%);
+  color: #e0e0e0;
   padding: 80px 20px;
   text-align: center;
   min-height: 100vh;
@@ -44,7 +47,8 @@ header {
   align-items: center;
   position: relative;
   overflow: hidden;
-  border-bottom: 3px solid #660000;
+  border-bottom: 1px solid #8b0000;
+  box-shadow: inset 0 -100px 100px -50px rgba(139, 0, 0, 0.1);
 }
 
 header::before {
@@ -55,9 +59,14 @@ header::before {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 70%),
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px);
-  animation: pulse 4s ease-in-out infinite;
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 0, 0, 0.02) 2px,
+      rgba(139, 0, 0, 0.02) 4px
+    );
+  pointer-events: none;
 }
 
 header::after {
@@ -67,72 +76,80 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139,0,0,0.05) 2px, rgba(139,0,0,0.05) 4px);
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.08) 0%, transparent 40%);
+  animation: pulseGlow 8s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
 }
 
 .logo-icon {
   width: 140px;
   height: 140px;
   margin-bottom: 30px;
-  filter: drop-shadow(0 0 20px rgba(255,0,0,1)) drop-shadow(0 0 40px rgba(255,0,0,0.6));
-  animation: float 3s ease-in-out infinite;
+  filter: 
+    drop-shadow(0 0 30px rgba(139, 0, 0, 0.8))
+    drop-shadow(0 0 60px rgba(139, 0, 0, 0.4));
+  animation: float 4s ease-in-out infinite;
   position: relative;
   z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
 .logo {
   font-size: 4.5rem;
   font-weight: 900;
   margin-bottom: 15px;
+  color: #d4d4d4;
   text-shadow: 
-    0 0 30px rgba(255,0,0,1),
-    0 0 50px rgba(255,0,0,0.8),
-    0 0 70px rgba(255,0,0,0.6),
-    2px 2px 4px #000,
-    -2px -2px 4px #000;
-  letter-spacing: 8px;
+    0 0 40px rgba(139, 0, 0, 0.6),
+    0 0 20px rgba(139, 0, 0, 0.4),
+    0 2px 10px rgba(0, 0, 0, 0.8);
+  letter-spacing: 12px;
   position: relative;
   z-index: 1;
-  color: #ffffff;
   text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 50%, #8a8a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tagline {
   font-size: 1.4rem;
   margin-bottom: 60px;
   font-weight: 300;
-  opacity: 0.9;
-  letter-spacing: 2px;
+  opacity: 0.85;
+  letter-spacing: 3px;
   position: relative;
   z-index: 1;
-  color: white;
+  color: #a0a0a0;
   font-style: italic;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
-  color: #bb0a1e;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #c41e3a;
   padding: 20px 60px;
   font-size: 1.2rem;
-  border: 2px solid #660000;
+  border: 2px solid #8b0000;
+  border-radius: 2px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 0 20px rgba(139,0,0,0.5),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8),
-    0 4px 8px rgba(0,0,0,0.8);
+    0 0 30px rgba(139, 0, 0, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   text-decoration: none;
   font-weight: 700;
   position: relative;
@@ -140,7 +157,6 @@ header::after {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
 }
 
 .cta-button::before {
@@ -150,8 +166,8 @@ header::after {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100,100,100,0.3), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.2), transparent);
+  transition: left 0.6s ease;
 }
 
 .cta-button:hover::before {
@@ -159,46 +175,53 @@ header::after {
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 
-    0 0 30px rgba(255,0,0,0.8),
-    0 10px 25px rgba(0,0,0,0.8),
-    inset 0 2px 4px rgba(100,100,100,0.4);
-  border-color: #cc0000;
-  color: #cc0000;
+    0 0 50px rgba(139, 0, 0, 0.7),
+    0 8px 25px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: #c41e3a;
+  color: #ff1744;
 }
 
+/* ============================================
+   SECTION STYLING
+   ============================================ */
 .section-title {
   font-size: 3rem;
   margin-bottom: 80px;
   text-align: center;
-  color: #ffffff;
+  color: #d4d4d4;
   font-weight: 900;
   position: relative;
   display: inline-block;
   width: 100%;
-  text-shadow: 
-    0 0 20px rgba(255,0,0,1),
-    0 0 40px rgba(255,0,0,0.8),
-    2px 2px 4px #000;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
+  text-shadow: 
+    0 0 30px rgba(139, 0, 0, 0.5),
+    0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #ff0000, transparent);
-  box-shadow: 0 0 10px rgba(255,0,0,1);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b0000, transparent);
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
 }
 
+/* ============================================
+   FEATURES SECTION
+   ============================================ */
 .features {
-  background: #1a1a1a;
+  background: 
+    radial-gradient(ellipse at center, rgba(139, 0, 0, 0.05) 0%, transparent 70%),
+    #0f0f0f;
   position: relative;
 }
 
@@ -209,7 +232,14 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(77,0,0,0.03) 2px, rgba(77,0,0,0.03) 4px);
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 0, 0, 0.02) 3px,
+      rgba(139, 0, 0, 0.02) 6px
+    );
   pointer-events: none;
 }
 
@@ -220,15 +250,15 @@ header::after {
 }
 
 .feature-card {
-  background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
   padding: 50px 35px;
   text-align: center;
-  border: 2px solid #555555;
+  border: 1px solid #333333;
+  border-radius: 4px;
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.9),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    0 10px 40px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -240,9 +270,9 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), transparent);
+  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.1), transparent);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.3s;
 }
 
 .feature-card:hover::before {
@@ -250,58 +280,63 @@ header::after {
 }
 
 .feature-card:hover {
-  transform: translateY(-12px);
-  border-color: #660000;
+  transform: translateY(-8px);
+  border-color: #8b0000;
   box-shadow: 
-    0 20px 50px rgba(139, 0, 0, 0.6),
-    0 0 20px rgba(255,0,0,0.5),
-    inset 0 2px 4px rgba(255,255,255,0.5);
+    0 20px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(139, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .feature-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 30px;
-  background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 8px 20px rgba(0, 0, 0, 0.8),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8);
-  border: 2px solid #555555;
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid #333333;
 }
 
 .feature-card:hover .feature-icon {
   transform: rotateY(360deg) scale(1.1);
   box-shadow: 
-    0 12px 30px rgba(139, 0, 0, 0.7),
-    0 0 20px rgba(255,0,0,0.5);
-  border-color: #660000;
+    0 12px 35px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(139, 0, 0, 0.5);
+  border-color: #8b0000;
 }
 
 .feature-card h3 {
   font-size: 1.6rem;
   margin-bottom: 15px;
-  color: #bb0a1e;
+  color: #c41e3a;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .feature-card p {
-  color: white;
+  color: #b0b0b0;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
+/* ============================================
+   ABOUT & GAMEPLAY SECTIONS
+   ============================================ */
 .about,
 .gameplay {
-  background: #1a1a1a;
+  background: 
+    radial-gradient(ellipse at center, rgba(139, 0, 0, 0.03) 0%, transparent 70%),
+    #0a0a0a;
   position: relative;
 }
 
@@ -313,7 +348,14 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(77,0,0,0.03) 2px, rgba(77,0,0,0.03) 4px);
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 0, 0, 0.02) 3px,
+      rgba(139, 0, 0, 0.02) 6px
+    );
   pointer-events: none;
 }
 
@@ -327,19 +369,19 @@ header::after {
 
 .about-image,
 .gameplay-image {
-  background: linear-gradient(135deg, #d0d0d0, white);
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
   height: 400px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.9),
-    inset 0 2px 4px rgba(255,255,255,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.4);
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
-  border: 2px solid #999999;
+  border: 1px solid #333333;
 }
 
 .about-image img,
@@ -347,6 +389,7 @@ header::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .about-image::before,
@@ -357,8 +400,8 @@ header::after {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(139,0,0,0.1) 0%, transparent 70%);
-  animation: rotate 10s linear infinite;
+  background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%);
+  animation: rotate 15s linear infinite;
 }
 
 @keyframes rotate {
@@ -370,33 +413,37 @@ header::after {
 .gameplay-image:hover {
   transform: scale(1.02);
   box-shadow: 
-    0 30px 80px rgba(139, 0, 0, 0.7),
-    0 0 30px rgba(255,0,0,0.5);
-  border-color: #660000;
+    0 30px 80px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(139, 0, 0, 0.4);
+  border-color: #8b0000;
 }
 
 .about-text h2,
 .gameplay-text h2 {
   font-size: 2.8rem;
   margin-bottom: 30px;
-  color: #bb0a1e;
+  color: #c41e3a;
   font-weight: 900;
-  text-shadow: 
-    1px 1px 3px rgba(255,255,255,0.5);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .about-text p,
 .gameplay-text p {
-  color: white;
+  color: #b0b0b0;
   margin-bottom: 20px;
   font-size: 1.15rem;
   line-height: 1.9;
 }
 
+/* ============================================
+   HOW TO PLAY SECTION
+   ============================================ */
 .how-to-play {
-  background: #1a1a1a;
+  background: 
+    radial-gradient(ellipse at center, rgba(139, 0, 0, 0.05) 0%, transparent 70%),
+    #0f0f0f;
   padding: 100px 20px;
   position: relative;
 }
@@ -408,7 +455,14 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(77,0,0,0.03) 2px, rgba(77,0,0,0.03) 4px);
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 0, 0, 0.02) 3px,
+      rgba(139, 0, 0, 0.02) 6px
+    );
   pointer-events: none;
 }
 
@@ -422,53 +476,54 @@ header::after {
   align-items: flex-start;
   gap: 30px;
   margin-bottom: 50px;
-  padding: 30px;
-  background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
-  border: 2px solid #555555;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 35px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid #333333;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 5px 20px rgba(0, 0, 0, 0.9),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8);
+    0 8px 30px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .rule-item:hover {
   transform: translateX(10px);
-  border-color: #660000;
+  border-color: #8b0000;
   box-shadow: 
-    0 10px 40px rgba(139, 0, 0, 0.6),
-    0 0 20px rgba(255,0,0,0.4);
+    0 12px 50px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(139, 0, 0, 0.3);
 }
 
 .rule-image {
   flex-shrink: 0;
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.8),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid #555555;
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #333333;
   overflow: hidden;
 }
 
 .rule-item:hover .rule-image {
   transform: scale(1.05);
-  border-color: #660000;
+  border-color: #8b0000;
   box-shadow: 
-    0 8px 25px rgba(139, 0, 0, 0.7),
-    0 0 15px rgba(255,0,0,0.5);
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(139, 0, 0, 0.4);
 }
 
 .rule-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .rule-content {
@@ -477,60 +532,62 @@ header::after {
 
 .rule-content h3 {
   font-size: 1.8rem;
-  color: #bb0a1e;
+  color: #c41e3a;
   margin-bottom: 15px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .rule-content p {
-  color: white;
+  color: #b0b0b0;
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 10px;
 }
 
 .rule-content strong {
-  color: #b30000;
+  color: #c41e3a;
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
 }
 
+/* ============================================
+   ARMY TABLE
+   ============================================ */
 .army-table {
   width: 100%;
   margin: 40px 0;
   border-collapse: collapse;
-  background: linear-gradient(135deg, #d8d8d8, #c0c0c0);
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
   overflow: hidden;
+  border-radius: 4px;
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.9),
-    inset 0 2px 4px rgba(255,255,255,0.4),
-    inset 0 -2px 4px rgba(0,0,0,0.3);
-  border: 2px solid #999999;
+    0 10px 40px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid #333333;
 }
 
 .army-table thead {
-  background: linear-gradient(135deg, #b8b8b8, #989898);
-  color: #bb0a1e;
+  background: linear-gradient(135deg, #333333, #1a1a1a);
+  color: #c41e3a;
 }
 
 .army-table th {
-  padding: 18px;
+  padding: 20px;
   text-align: left;
   font-weight: 700;
   font-size: 1.1rem;
-  letter-spacing: 1px;
-  border-bottom: 2px solid #660000;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #8b0000;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .army-table td {
-  padding: 15px 18px;
-  border-bottom: 1px solid #aaaaaa;
-  color: #2a2a2a;
+  padding: 18px 20px;
+  border-bottom: 1px solid #262626;
+  color: #b0b0b0;
   font-size: 1rem;
 }
 
@@ -539,7 +596,7 @@ header::after {
 }
 
 .army-table tbody tr:hover {
-  background: linear-gradient(135deg, #c8c8c8, white);
+  background: linear-gradient(135deg, #262626, #1a1a1a);
 }
 
 .army-table tbody tr:last-child td {
@@ -547,22 +604,22 @@ header::after {
 }
 
 .piece-icon-cell {
-  width: 70px;
-  padding: 10px !important;
+  width: 80px;
+  padding: 12px !important;
 }
 
 .piece-icon-wrapper {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #a8a8a8, #888888);
+  background: linear-gradient(135deg, #333333, #1a1a1a);
+  border-radius: 4px;
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.8),
-    inset 0 2px 4px rgba(255,255,255,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.4);
-  border: 1px solid #777777;
+    0 4px 15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid #444444;
 }
 
 .piece-svg {
@@ -570,17 +627,20 @@ header::after {
   height: 100%;
 }
 
+/* ============================================
+   DOWNLOAD SECTION
+   ============================================ */
 .download-section {
-  background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
-  background-size: 150% 200%;
-  animation: gradientShift 8s ease infinite;
-  color: #2a2a2a;
+  background: 
+    radial-gradient(ellipse at top, rgba(139, 0, 0, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #0d0000 0%, #000000 100%);
+  color: #e0e0e0;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
   position: relative;
   overflow: hidden;
-  border-top: 3px solid #660000;
-  border-bottom: 3px solid #660000;
+  border-top: 1px solid #8b0000;
+  border-bottom: 1px solid #8b0000;
 }
 
 .download-section::before {
@@ -591,10 +651,10 @@ header::after {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 70% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px);
-  animation: pulse 6s ease-in-out infinite;
+    radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .download-section h2 {
@@ -603,37 +663,36 @@ header::after {
   font-weight: 900;
   position: relative;
   z-index: 1;
-  color: #ffffff;
+  color: #d4d4d4;
   text-shadow: 
-    0 0 30px rgba(255,0,0,1),
-    0 0 50px rgba(255,0,0,0.8),
-    2px 2px 4px #000;
+    0 0 40px rgba(139, 0, 0, 0.6),
+    0 2px 10px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
 }
 
 .download-section p {
   font-size: 1.3rem;
   margin-bottom: 60px;
-  opacity: 0.9;
+  opacity: 0.85;
   position: relative;
   z-index: 1;
-  color: white;
+  color: #a0a0a0;
 }
 
 .download-button {
-  background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
-  color: #bb0a1e;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #c41e3a;
   padding: 24px 80px;
   font-size: 1.4rem;
-  border: 2px solid #660000;
+  border: 2px solid #8b0000;
+  border-radius: 2px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 15px 50px rgba(0,0,0,0.9),
-    0 0 20px rgba(139,0,0,0.5),
-    inset 0 2px 4px rgba(100,100,100,0.3),
-    inset 0 -2px 4px rgba(0,0,0,0.8);
+    0 15px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(139, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   text-decoration: none;
   font-weight: 700;
   display: inline-block;
@@ -642,7 +701,6 @@ header::after {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
 }
 
 .download-button::before {
@@ -652,8 +710,8 @@ header::after {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100,100,100,0.3), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.2), transparent);
+  transition: left 0.6s ease;
 }
 
 .download-button:hover::before {
@@ -661,15 +719,18 @@ header::after {
 }
 
 .download-button:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 
-    0 20px 60px rgba(139,0,0,0.8),
-    0 0 30px rgba(255,0,0,0.8),
-    inset 0 2px 4px rgba(100,100,100,0.4);
-  border-color: #cc0000;
-  color: #cc0000;
+    0 20px 60px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(139, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: #c41e3a;
+  color: #ff1744;
 }
 
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
   background: #000000;
   color: #666666;
@@ -677,9 +738,12 @@ footer {
   padding: 50px 20px;
   font-weight: 600;
   font-size: 1.1rem;
-  border-top: 2px solid #1a1a1a;
+  border-top: 1px solid #1a1a1a;
 }
 
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
   position: fixed;
   bottom: 0;
@@ -689,13 +753,13 @@ footer {
   display: flex;
   justify-content: center;
   gap: 50px;
-  padding: 18px 0;
+  padding: 20px 0;
   z-index: 1000;
   box-shadow: 
-    0 -5px 30px rgba(0, 0, 0, 0.9),
-    0 0 20px rgba(139,0,0,0.3),
-    inset 0 1px 0 rgba(77,0,0,0.2);
-  border-top: 2px solid #2a2a2a;
+    0 -8px 40px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(139, 0, 0, 0.2),
+    inset 0 1px 0 rgba(139, 0, 0, 0.1);
+  border-top: 1px solid #333333;
   animation: navSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -711,11 +775,11 @@ footer {
 }
 
 .navbar a {
-  color: #5a5a5a;
+  color: #777777;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 8px 20px;
+  padding: 10px 24px;
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
@@ -729,7 +793,7 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(139, 0, 0, 0.2);
+  background: rgba(139, 0, 0, 0.15);
   transform: scaleX(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -739,16 +803,14 @@ footer {
 }
 
 .navbar a:hover {
-  color: #bb0a1e;
-  transform: translateY(-3px);
-  text-shadow: 0 0 10px rgba(139,0,0,0.6);
+  color: #c41e3a;
+  transform: translateY(-2px);
+  text-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 @media (max-width: 768px) {
   .about-content,
   .gameplay-content {
@@ -758,14 +820,17 @@ footer {
 
   .logo {
     font-size: 3rem;
+    letter-spacing: 8px;
   }
 
   .tagline {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
   }
 
   .section-title {
     font-size: 2.2rem;
+    letter-spacing: 4px;
   }
 
   .navbar {
@@ -775,7 +840,7 @@ footer {
 
   .navbar a {
     font-size: 0.9rem;
-    padding: 6px 12px;
+    padding: 8px 16px;
   }
 
   .rule-item {
@@ -790,11 +855,11 @@ footer {
   }
 
   .army-table {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .army-table th,
   .army-table td {
-    padding: 12px 10px;
+    padding: 15px 12px;
   }
 }
