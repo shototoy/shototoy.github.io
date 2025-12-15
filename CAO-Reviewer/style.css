@@ -173,7 +173,8 @@ body {
     /* Ensure content is above the overlay initially if needed, though we will use opacity */
 }
 
-.info-card:hover {
+.info-card:hover,
+.info-card.mobile-active {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
     border-color: var(--accent);
@@ -183,7 +184,8 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.info-card:hover .card-content-wrapper {
+.info-card:hover .card-content-wrapper,
+.info-card.mobile-active .card-content-wrapper {
     opacity: 0.1;
     /* Fade out content slightly */
     filter: blur(2px);
@@ -211,7 +213,8 @@ body {
     text-align: center;
 }
 
-.info-card:hover .strategy-overlay {
+.info-card:hover .strategy-overlay,
+.info-card.mobile-active .strategy-overlay {
     opacity: 1;
     transform: translateY(0);
 }

@@ -7,222 +7,252 @@ const strategyData = {
         },
         "Transparency": {
             type: "Concept",
-            text: "Abstraction. The user shouldn't know or care that it's complicated underneath."
+            text: "Magic Trick. The user sees one rabbit, but there are 50 assistants behind the curtain."
         },
         "Reliability": {
             type: "Analogy",
-            text: "Redundancy. Like having a spare tire. The car keeps moving even if one tire fails."
+            text: "Spare Tire. The car keeps moving even if one part fails."
         },
         "Availability": {
             type: "Metric",
-            text: "Uptime. The shop is open 24/7 because there are shift workers (servers) taking turns."
+            text: "The Shop is Open. 24/7 service because employees work mainly in shifts."
         },
         "Resource Sharing": {
             type: "Concept",
-            text: "Pooling. Everyone puts their resources in the middle of the table."
+            text: "Potluck Dinner. Everyone brings a dish (resources) to the table."
         },
         "Concurrency": {
             type: "Distinction",
-            text: "Parallelism. Things happening literally at the same time, physically separate."
+            text: "Multitasking. Eating and breathing at the same time."
+        },
+        "Scalability": {
+            type: "Goal",
+            text: "Elastic Waistband. Expands comfortably as you grow."
         },
         "Horizontal Scalability": {
             type: "Rule",
-            text: "Scale Out. Add more cheap machines. Like hiring more junior developers."
+            text: "Clone Army. Add more identical troopers."
         },
         "Vertical Scalability": {
             type: "Rule",
-            text: "Scale Up. Buy a bigger, faster machine. Like cloning your senior dev."
+            text: "Iron Man Suit. Upgrade the single hero with better tech."
         },
-        "Client-Server Architecture": {
+        "Fault Tolerance": {
+            type: "Safety",
+            text: "Cushion. If you fall, you land on a mattress, not concrete."
+        },
+        "Architectures": {
+            type: "Blueprint",
+            text: "Floor Plans. Different ways to organize the house."
+        },
+        "Client-Server": {
             type: "Pattern",
-            text: "Centralized. One Boss (Server), many workers (Clients)."
+            text: "Restaurant. Customer (Client) orders, Chef (Server) cooks."
         },
         "Peer-to-Peer (P2P)": {
             type: "Pattern",
-            text: "Decentralized. Everyone is equal. No single point of failure."
+            text: "Study Group. Everyone teaches each other. No teacher."
         },
-        "Three-Tier Architecture": {
+        "Three-Tier": {
             type: "Architecture",
-            text: "Separation of Concerns. UI, Logic, and Data don't touch each other's private parts."
-        },
-        "Synchronous": {
-            type: "Mechanism",
-            text: "Blocking. You are on hold on the phone. You can't do anything else."
-        },
-        "Asynchronous": {
-            type: "Mechanism",
-            text: "Non-Blocking. You sent an email. You can go do other work while waiting for a reply."
-        },
-        "Middleware Examples": {
-            type: "Toolbox",
-            text: "Standard tools everyone uses. Kafka = Pipe for data. gRPC = High speed phone line."
+            text: "Layer Cake. Icing (UI), Sponge (Logic), Cream (Data)."
         },
         "Communication Context": {
             type: "Concept",
-            text: "Talking requires rules. How do we send messages without chaos?"
+            text: "The Language. How parts say 'Hello' and 'Goodbye'."
+        },
+        "Synchronous": {
+            type: "Mechanism",
+            text: "Phone Call. You have to wait for them to answer."
+        },
+        "Asynchronous": {
+            type: "Mechanism",
+            text: "Text Message. Send it and go do something else."
+        },
+        "Middleware": {
+            type: "Toolbox",
+            text: "Translator. Helps French and English speakers talk."
+        },
+        "Middleware Examples": {
+            type: "Tools",
+            text: "Kafka = Postal Service. gRPC = Hotline."
         },
         "Google": {
             type: "Strategy",
-            text: "MapReduce / GFS. Break big data into chunks (Sharding), process in parallel (Map), aggregate results (Reduce)."
+            text: "MapReduce. Divide the library books among 100 students to count words instantly."
         },
         "Netflix": {
             type: "Engineering",
-            text: "Resilience. Systems designed to fail safely (degrade quality) rather than stop working."
+            text: "Chaos Monkey. Break things on purpose to learn how to fix them."
         },
-        "Encryption": {
-            type: "Security",
-            text: "Scrambling data so only the intended receiver can read it. Like a sealed envelope."
+        "Security": {
+            type: "Shield",
+            text: "The Bouncer. Checks ID (AuthN) and List (AuthZ)."
         },
-        "Authentication & Authorization": {
-            type: "Security",
-            text: "AuthN: 'Who are you?' (ID Card). AuthZ: 'What can you do?' (Access Key)."
+        "Components": {
+            type: "Lego Set",
+            text: "Standard Bricks. Use these to build any castle."
         },
         "Message Queues": {
             type: "Pattern",
-            text: "Decoupling. Producer puts work in a box. Consumer takes it out when ready. They don't need to meet."
+            text: "Voicemail. Leave a message, they'll listen when free."
         },
         "API Gateway": {
             type: "Pattern",
-            text: "The Receptionist. One point of entry for all visitors (requests)."
+            text: "Reception Desk. One person directs all visitors."
         },
-        "Containers & Orchestration": {
+        "Containers": {
             type: "DevOps",
-            text: "Shipping Containers. Standard box for code (Docker) moved by a crane (Kubernetes)."
+            text: "Lunchbox. Your food (code) is packed and ready to eat anywhere."
         }
     },
     // Advanced Architecture
     "adv-arch": {
         "Homogeneous Computing": {
-            type: "Definition",
-            text: "Same-Same. All cores are identical. Good for general work, bad for specific heavy lifting."
+            type: "Tradition",
+            text: "Clones. All workers are exactly the same."
         },
-        "Why Advanced Architectures?": {
-            type: "Context",
-            text: "General tools (Hammer) can't fix everything. Sometimes you need a laser cutter (AI/Big Data)."
+        "Limitations": {
+            type: "Problem",
+            text: "Jack of All Trades. Master of none."
+        },
+        "Why Advanced?": {
+            type: "Driver",
+            text: "Need for Speed. Normal cars can't race in F1."
         },
         "Heterogeneous Computing": {
-            type: "Goal",
-            text: "The Avengers. Bring together different heroes (CPU, GPU, FPGA) to save the world."
+            type: "Team",
+            text: "The Avengers. Hulk (GPU), Iron Man (CPU), Vision (FPGA)."
         },
-        "CPU": {
-            type: "Role",
-            text: "The Manager. Handles logic, OS, and decision making. Sequential."
+        "Components": {
+            type: "Roster",
+            text: "The Team Members."
         },
-        "GPU": {
-            type: "Role",
-            text: "The Factory Workers. Thousands of tiny hands working together. Parallel."
-        },
-        "FPGA": {
-            type: "Role",
-            text: "The Shapeshifter. Hardware that can rewire itself to be whatever tool you need."
+        "Trade-offs": {
+            type: "Balance",
+            text: "Power vs. Complexity. A Ferrari is hard to fix."
         },
         "Reconfigurable Computing": {
-            type: "Definition",
-            text: "Hardware as Software. Logic gates (LUTs) are reprogrammable."
+            type: "Tech",
+            text: "Transformer. A robot that turns into a car."
         },
-        "Core Components of FPGA": {
-            type: "Anatomy",
-            text: "CLBs = Logic. Interconnects = Wires. I/O = Ports."
+        "Core Components": {
+            type: "Parts",
+            text: "LUTs = Logic choices. Interconnects = Wires."
         },
-        "Objective": {
-            type: "Goal",
-            text: "Break the Memory Wall. Stop wasting time and energy driving data back and forth."
-        },
-        "Processing Near Memory (PnM)": {
+        "Memory-Centric": {
             type: "Strategy",
-            text: "Move the kitchen (Compute) next to the fridge (Memory)."
+            text: "Move the Gym to the House. Stop commuting."
         },
-        "Processing Using Memory (PuM)": {
-            type: "Strategy",
-            text: "Cook inside the fridge. Use memory cells to do math."
+        "Processing Near Memory": {
+            type: "Tactic",
+            text: "Next Door. Compute lives on the same street."
+        },
+        "Processing Using Memory": {
+            type: "Tactic",
+            text: "In-House. Compute lives in the spare bedroom."
         },
         "3D ICs": {
-            type: "Visual",
-            text: "Skyscrapers. Build UP to save space and reduce travel time."
+            type: "Innovation",
+            text: "Skyscrapers. Build up, not out."
         },
-        "Key Enabling Technologies": {
-            type: "Tech",
-            text: "TSVs = Elevators in the skyscraper. Wafer Bonding = Glue."
+        "Enabling Tech": {
+            type: "Glue",
+            text: "TSV = Elevator shaft."
         },
         "Challenges": {
-            type: "Problem",
-            text: "Heat. Stacking electronics is like stacking blankets. It gets hot inside."
+            type: "Hurdle",
+            text: "Heat. High floors get hot."
         },
         "Optical Computing": {
             type: "Physics",
-            text: "Light Speed. Photons generate less heat and move faster than electrons."
+            text: "Fiber Optics. Data moves at light speed."
         },
-        "Core Components": {
-            type: "Part",
-            text: "Lasers = Source. Waveguides = Wires. Modulators = Switches."
+        "Advantages": {
+            type: "Benefit",
+            text: "Cool & Fast. No resistance = No heat."
         },
         "Key Areas of Development": {
-            type: "Trend",
-            text: "AI needs speed. We are building specialized racetracks for it."
+            type: "Focus",
+            text: "AI & Green Tech."
         },
-        "Security-First": {
-            type: "Concept",
-            text: "Hardware reliability. TrustZone and Enclaves."
+        "Heterogeneous": {
+            type: "Review",
+            text: "Specialized Team."
         },
-        "Heterogeneous Computing": {
-            type: "Summary",
-            text: "Best for mixed workloads. Hard to code."
+        "FPGA": {
+            type: "Review",
+            text: "Chameleon."
         },
-        "Reconfigurable (FPGA)": {
-            type: "Summary",
-            text: "Best for adaptability. Hard to design."
+        "Optical": {
+            type: "Review",
+            text: "Photonics."
         },
-        "Memory-Centric": {
-            type: "Summary",
-            text: "Best for bandwidth. Requires new software."
-        },
-        "Evolution Stages": {
+        "Evolution Path": {
             type: "Timeline",
-            text: "Multi-core -> Heterogeneous -> Specialized -> Domain Specific."
+            text: "From General CPU to Custom ASIC."
         },
-        "Future Direction": {
+        "Stages": {
+            type: "Steps",
+            text: "1. Same -> 2. Mixed -> 3. Dedicated."
+        },
+        "Future": {
             type: "Forecast",
-            text: "Legos (Chiplets). Assemble chips from pre-made blocks."
+            text: "Chiplets. Buying parts to build a PC, but for chips."
         }
     },
+    // Emerging Trends
     "emerging": {
+        "Semiconductors": {
+            type: "Material",
+            text: "Silicon Valley. The foundation of modern life."
+        },
         "5nm Node": {
-            type: "Trend",
-            text: "Smaller = Better. Reduced gate length means faster switching and less power required."
+            type: "Tech",
+            text: "Tiny Switch. 5 billionths of a meter."
         },
         "3nm Node": {
-            type: "Trend",
-            text: "GAAFET. The Gate wraps 'All Around' the channel like a fist holding a straw. Maximum control."
+            type: "Tech",
+            text: "Even Tinier. Better control (GAA) like a stronger faucet valve."
         },
         "Workflow Stages": {
             type: "Process",
-            text: "The Recipe. 1. Plan (Spec) -> 2. Cook (Synthesis) -> 3. Taste (Sim/Verif) -> 4. Plate (Layout)."
+            text: "Blueprint to Building. Plan, Design, Test, Build."
         },
         "Common EDA Tools": {
-            type: "Toolbox",
-            text: "Architect's Toolkit. Like AutoCAD but for microchips. Synopsys & Cadence are the big players."
+            type: "Software",
+            text: "CAD for Chips. Tools to draw the microscopic city."
         },
-        "AI-Assisted Architecture Optimization": {
-            type: "Evolution",
-            text: "Machine designing Machine. AI finds the best layout faster than humans can."
+        "AI-Assisted Architecture": {
+            type: "Innovation",
+            text: "AI designing AI. Computers building better computers."
         },
-        "Challenges of AI Optimization": {
-            type: "Problem",
-            text: "Black Box. If AI designs it, we might not understand WHY it works (Intepretability)."
-        },
-        "Importance of AI-Assisted": {
+        "Importance": {
             type: "Benefit",
-            text: "Efficiency. Exploring billions of options in seconds to save money and power."
+            text: "Speed. Humans are too slow to place billions of transistors."
         },
         "Ethical and Security Issues in Hardware Design": {
             type: "Warning",
-            text: "The Dark Side. Hidden backdoors in chips could leak secrets or disable weapons."
+            text: "Trojan Horse. A virus hidden in the physical chip."
+        },
+        "Open Hardware Initiative": {
+            type: "Movement",
+            text: "Open Source. Hardware designs anyone can use."
         },
         "RISC-V": {
-            type: "Licensing",
-            text: "Open Source. No royalty fees. The Linux of hardware."
+            type: "Standard",
+            text: "Hardware Linux. Free instruction set."
+        },
+        "OpenCores": {
+            type: "Library",
+            text: "GitHub for Hardware."
+        },
+        "EDA (Electronic Design Automation)": {
+            type: "Definition",
+            text: "Chip Architects. The software used to design hardware."
         }
     },
+    // Specialized & Applied
     "specialized": {
         "Datacenter Architecture": {
             type: "Goal",
@@ -230,7 +260,7 @@ const strategyData = {
         },
         "Key Server Components": {
             type: "Anatomy",
-            text: "The Muscle. CPU is the brain, but RAM and Storage are the muscles lifting the weight."
+            text: "The Muscle. CPU is the brain, but RAM and Storage are the muscles."
         },
         "Scaling Models": {
             type: "Strategy",
@@ -242,11 +272,7 @@ const strategyData = {
         },
         "Scale-Out (Horizontal)": {
             type: "Tactic",
-            text: "Cloning. Hire more workers. Easier to manage if one calls in sick."
-        },
-        "Datacenter Efficiency": {
-            type: "Metric",
-            text: "Go Green. Don't waste power on air conditioning."
+            text: "Cloning. Hire more workers. Easier to manage redundancy."
         },
         "PUE (Power Usage Effectiveness)": {
             type: "Formula",
@@ -258,7 +284,7 @@ const strategyData = {
         },
         "Disaggregation": {
             type: "Concept",
-            text: "LEGOs. Compute, Storage, and Network are separate bins of bricks to mix and match."
+            text: "LEGOs. Compute, Storage, and Network are separate bins."
         },
         "Blockchain Hardware Implementations": {
             type: "Definition",
@@ -266,103 +292,139 @@ const strategyData = {
         },
         "ASIC Architecture": {
             type: "Evolution",
-            text: "The Specialist. A tool built to do ONE thing perfectly (hashing) and nothing else."
-        },
-        "Thermal & Power Constraints": {
-            type: "Problem",
-            text: "Meltdown. Putting 1000 heaters/chips in a room requires serious cooling."
+            text: "The Specialist. A tool built to do ONE thing perfectly."
         },
         "Transaction Processing": {
             type: "Process",
-            text: "The Lottery. Computing hashes is just buying tickets to find the winner."
+            text: "The Lottery. Computing hashes tickets."
+        },
+        "Thermal & Power Constraints": {
+            type: "Problem",
+            text: "Meltdown. 1000 chips = 1000 heaters."
         },
         "Embedded System": {
             type: "Definition",
-            text: "Hidden Helper. The computer inside your microwave or car brake system."
-        },
-        "Real-Time Requirements": {
-            type: "Constraint",
-            text: "Deadlines. If you're late, you failed. Time is part of correctness."
+            text: "Hidden Helper. The computer inside your microwave."
         },
         "Microcontroller (MCU)": {
             type: "Device",
-            text: "All-in-One. CPU, RAM, and Storage on a single chip. Tiny and cheap."
+            text: "All-in-One. CPU, RAM, and Storage on a single chip."
+        },
+        "Real-Time Requirements": {
+            type: "Constraint",
+            text: "Deadlines. Late answer = Wrong answer."
         },
         "Interrupts & Predictability": {
             type: "Mechanism",
-            text: "The Doorbell. Stop what you're doing and answer the door immediately."
+            text: "The Doorbell. Stop and answer immediately."
+        },
+        "Applications": {
+            type: "Usage",
+            text: "Where do we use this?"
         },
         "Automotive ECUs": {
             type: "Safety",
-            text: "No Failures. Dual-core lockstep = Two pilots checking each other's work."
+            text: "Pilot. Cars fly on code."
         },
         "Industrial Control (PLC)": {
             type: "Reliability",
-            text: "Rugged. Must survive vibrations, heat, and dust in a factory."
+            text: "Factory Foreman. Rugged and reliable."
         },
         "High-Performance Computing (HPC)": {
             type: "Definition",
-            text: "Supercomputers. Solving big math problems like weather prediction."
+            text: "Supercomputers. Solving big math."
         },
         "Parallel Processing Models": {
             type: "Theory",
-            text: "Teamwork. How do we split the task?"
+            text: "Teamwork Styles."
         },
         "SIMD": {
             type: "Mode",
-            text: "Army Drill. One commander shouts 'Jump', everyone jumps."
+            text: "Army Drill. 'Jump!' -> Everyone jumps."
         },
         "MIMD": {
             type: "Mode",
-            text: "Construction Site. Plumber does plumbing, Electrician does wiring. Different jobs."
+            text: "Construction Site. Plumber puts pipes, Electrician puts wires."
         },
         "Interconnect Networks": {
             type: "Infrastructure",
-            text: "Highways. Moving data between nodes needs wide lanes."
+            text: "Highways. Fast lanes for data."
         },
         "InfiniBand": {
             type: "Tech",
-            text: "The Autobahn. Specialized high-speed network for supercomputers to avoid traffic."
+            text: "Autobahn. No speed limit for supercomputers."
         },
         "Cluster Architecture": {
             type: "Organization",
-            text: "The Hive. Thousands of bees (nodes) working under one Queen (Scheduler)."
+            text: "The Hive. Bees working for the Queen."
+        },
+        "Memory Hierarchy in HPC": {
+            type: "Structure",
+            text: "Shared vs Distributed."
         },
         "Hardware Virtualization": {
             type: "Concept",
-            text: "Inception. Running a computer inside a computer."
+            text: "Inception. A computer inside a computer."
+        },
+        "Hypervisor Types": {
+            type: "Category",
+            text: "The Managers."
         },
         "Type 1 (Bare-Metal)": {
             type: "Tech",
-            text: "Direct Control. The Hypervisor is the Operating System."
+            text: "Direct Boss. No OS in between."
         },
         "Type 2 (Hosted)": {
             type: "Tech",
-            text: "App. The Hypervisor runs like a program on Windows."
+            text: "Middle Manager. Runs inside an OS."
+        },
+        "CPU Virtualization": {
+            type: "Tech",
+            text: "Time Slicing. Pretending to be many CPUs."
+        },
+        "I/O & Memory Virtualization": {
+            type: "Tech",
+            text: "Shared Access. Virtual addresses mapped to real."
         },
         "Cloud Infrastructure": {
-            type: "Concept",
-            text: "Rental. You don't buy the servers, you rent them by the hour."
+            type: "Business",
+            text: "Rental. Don't buy, just rent the time."
         },
         "IoT Architecture": {
             type: "Design",
-            text: "Marathon Runner. Optimized for endurance (battery life), not sprinting speed."
+            text: "Marathon Runner. Built for endurance (battery)."
+        },
+        "Distributed Compute": {
+            type: "Strategy",
+            text: "Edge vs Cloud."
         },
         "Cloud Processing": {
             type: "Location",
-            text: "The Warehouse. Send data away to be processed. High latency."
+            text: "HQ. Smart but far away."
         },
         "Edge Processing": {
             type: "Location",
-            text: "On-Site. Process data right where it's collected. Fast reaction."
+            text: "Field Agent. Fast response on site."
         },
         "Low-Power Cores": {
-            type: "Examples",
-            text: "Cortex-M. Chips that sleep 99% of the time to save energy."
+            type: "Tech",
+            text: "Sipping Energy. Cortex-M."
+        },
+        "Sensor Integration": {
+            type: "Input",
+            text: "Eyes and Ears."
         },
         "Hardware Security": {
-            type: "Metaphor",
-            text: "The Vault. TrustZone keeps secrets separate from the main OS."
+            type: "Vault",
+            text: "TrustZone. Secure area for secrets."
+        },
+        "Synthesis": {
+            type: "Summary",
+            text: "Putting it together."
+        },
+        "Module Summary": {
+            type: "Recap",
+            text: "The Big Picture."
         }
     }
 };

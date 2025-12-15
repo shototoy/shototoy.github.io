@@ -192,6 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Add Click Event for Mobile/Touch devices
+        card.addEventListener('click', () => {
+            // Close other cards first (optional, but good for UX)
+            if (!card.classList.contains('mobile-active')) {
+                document.querySelectorAll('.info-card.mobile-active').forEach(c => c.classList.remove('mobile-active'));
+            }
+            card.classList.toggle('mobile-active');
+        });
+
         return card;
     }
 
