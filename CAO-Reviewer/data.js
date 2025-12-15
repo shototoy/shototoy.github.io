@@ -113,7 +113,11 @@ const courseData = [
                             },
                             {
                                 title: "Three-Tier",
-                                content: ["UI, Logic, Data layers.", "Modular separation."]
+                                content: [
+                                    "<span style='color: #4ade80;'>Presentation layer (UI)</span>: This is what the user sees and interacts with. Example: a website or mobile app screen.",
+                                    "<span style='color: #4ade80;'>Application layer (business logic)</span>: This is where the rules and processing happen. It decides how data is handled. Example: checking if your login password is correct.",
+                                    "<span style='color: #4ade80;'>Data layer (databases and storage)</span>: This is where information is stored and retrieved. Example: a database with usernames, passwords, and user profiles."
+                                ]
                             }
                         ]
                     }
@@ -143,7 +147,11 @@ const courseData = [
                         isTree: true,
                         root: {
                             title: "Middleware",
-                            content: ["Software bridge between OS and Apps.", "Handles messaging & transactions."]
+                            content: [
+                                "Middleware is software that sits between the operating system and applications to help them work together.",
+                                "It handles tasks like messaging, transactions, and finding services.",
+                                "It makes communication between different parts of a distributed system easier and more reliable."
+                            ]
                         },
                         children: [
                             {
@@ -162,17 +170,17 @@ const courseData = [
                             {
                                 title: "Google",
                                 content: [
-                                    "Search infrastructure.",
-                                    "MapReduce & GFS.",
-                                    "Replication for safety."
+                                    "Search infrastructure: Many computers share the work.",
+                                    "Web crawling: Multiple crawlers scan the web.",
+                                    "Replication: Data copies in different data centers prevent failures."
                                 ]
                             },
                             {
                                 title: "Netflix",
                                 content: [
-                                    "Microservices architecture.",
-                                    "Chaos Monkey testing.",
-                                    "Global CDNs."
+                                    "<span style='color: #4ade80;'>Microservices-based streaming</span>: Netflix splits its platform into small services, each handling a specific task like recommendations or playback. This makes updates faster and systems more reliable.",
+                                    "<span style='color: #4ade80;'>Chaos Monkey for resilience</span>: Netflix intentionally shuts down parts of its system to test how well it handles failures. This ensures the platform stays up even if something breaks.",
+                                    "<span style='color: #4ade80;'>Global CDNs</span>: Videos are stored in servers around the world, so users get fast streaming no matter where they are."
                                 ]
                             }
                         ]
@@ -180,19 +188,34 @@ const courseData = [
                 ]
             },
             {
-                title: "Security & Components",
+                title: "Security",
                 groups: [
                     {
                         cards: [
                             {
-                                title: "Security",
+                                title: "Encryption & Keys",
                                 content: [
-                                    "Encryption (TLS/SSL).",
-                                    "AuthN (Who?) & AuthZ (What?)."
+                                    "<span style='color: #4ade80;'>TLS/SSL</span>: Protects data while it moves between computers. It stops attackers from reading or changing information.",
+                                    "<span style='color: #4ade80;'>End-to-End encryption</span>: Only the sender and receiver can read the data. Even the service provider cannot access it.",
+                                    "<span style='color: #4ade80;'>Key management</span>: Securely creates, stores, and rotates encryption keys. Proper management prevents unauthorized access."
+                                ]
+                            },
+                            {
+                                title: "Authentication & Authorization",
+                                content: [
+                                    "<span style='color: #4ade80;'>Authentication</span>: Confirms who you are. Methods include passwords, OAuth tokens, and certificates.",
+                                    "<span style='color: #4ade80;'>Authorization</span>: Controls what you can do. Uses access rules like RBAC (role-based) and ABAC (attribute-based).",
+                                    "<span style='color: #4ade80;'>Principle of least privilege</span>: Give users only the access they need. This reduces risk if an account is compromised.",
+                                    "This keeps distributed systems secure by verifying users and limiting what they can access."
                                 ]
                             }
                         ]
-                    },
+                    }
+                ]
+            },
+            {
+                title: "Components",
+                groups: [
                     {
                         isTree: true,
                         root: {
@@ -202,15 +225,42 @@ const courseData = [
                         children: [
                             {
                                 title: "Message Queues",
-                                content: ["Decoupling producers/consumers.", "Event-driven."]
+                                content: [
+                                    "Let systems send messages without waiting for a reply. This keeps processes running smoothly.",
+                                    "<span style='color: #4ade80;'>Event-driven design</span>: Systems react to events as they happen, often using pub/sub (publish/subscribe) patterns.",
+                                    "Examples: RabbitMQ and Apache Kafka handle large volumes of messages reliably.",
+                                    "This approach improves scalability and decouples parts of a distributed system."
+                                ]
                             },
                             {
-                                title: "API Gateway",
-                                content: ["Entry point.", "Routing & Auth."]
+                                title: "API Gateway & Service Mesh",
+                                content: [
+                                    "<span style='color: #4ade80;'>API Gateway</span>: Acts as a single entry point for clients. Routes requests, handles authentication, and simplifies access to multiple services.",
+                                    "<span style='color: #4ade80;'>Service Mesh</span>: Manages communication between services inside the system. Handles load balancing, security, and monitoring.",
+                                    "Examples: AWS API Gateway for external access, Istio for internal service management.",
+                                    "This setup makes distributed systems easier to manage, secure, and scale."
+                                ]
                             },
                             {
                                 title: "Containers",
                                 content: ["Docker & Kubernetes.", "Portable deployment."]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Future Trends in Distributed Systems",
+                groups: [
+                    {
+                        cards: [
+                            {
+                                title: "Emerging Technologies",
+                                content: [
+                                    "<span style='color: #4ade80;'>Edge computing</span>: Moves processing closer to users, reducing delay and improving speed.",
+                                    "<span style='color: #4ade80;'>Serverless (FaaS)</span>: Runs functions only when needed, saving resources and simplifying scaling.",
+                                    "<span style='color: #4ade80;'>Blockchain and AI</span>: Blockchain ensures secure, decentralized data. AI processes large data sets across distributed systems."
+                                ]
                             }
                         ]
                     }
