@@ -55,7 +55,7 @@ const strategyData = {
         },
         "Three-Tier": {
             type: "Architecture",
-            text: "Layer Cake. Icing (UI), Sponge (Logic), Cream (Data)."
+            text: "Layer Cake. Top: Icing (UI). Middle: Sponge (Logic). Bottom: Plate (Data)."
         },
         "Communication Context": {
             type: "Concept",
@@ -71,7 +71,7 @@ const strategyData = {
         },
         "Middleware": {
             type: "Toolbox",
-            text: "Translator. Helps French and English speakers talk."
+            text: "Translator. Helps French and English speakers talk to each other."
         },
         "Middleware Examples": {
             type: "Tools",
@@ -89,6 +89,14 @@ const strategyData = {
             type: "Shield",
             text: "The Bouncer. Checks ID (AuthN) and List (AuthZ)."
         },
+        "Encryption & Keys": {
+            type: "Technique",
+            text: "Secret Code. Only those with the decoder ring can read the message."
+        },
+        "Authentication & Authorization": {
+            type: "Security Protocol",
+            text: "ID Badge vs. Keycard. ID says who you are; Keycard says where you can go."
+        },
         "Components": {
             type: "Lego Set",
             text: "Standard Bricks. Use these to build any castle."
@@ -97,18 +105,30 @@ const strategyData = {
             type: "Pattern",
             text: "Voicemail. Leave a message, they'll listen when free."
         },
-        "API Gateway": {
+        "API Gateway & Service Mesh": {
             type: "Pattern",
-            text: "Reception Desk. One person directs all visitors."
+            text: "Reception Desk. One person directs all visitors (Gateway). Traffic Cop inside the building (Mesh)."
         },
         "Containers": {
             type: "DevOps",
             text: "Lunchbox. Your food (code) is packed and ready to eat anywhere."
+        },
+        "Emerging Technologies": {
+            type: "Future",
+            text: "Next Gen. Edge is computing at the source. Serverless is pay-per-use."
         }
     },
     // Advanced Architecture
     "adv-arch": {
-        "Homogeneous Computing": {
+        "Introduction to Advanced Architectures": {
+            type: "Overview",
+            text: "The Modern Era. Moving beyond simple CPUs to specialized powerhouses."
+        },
+        "Evolution: Traditional to Advanced": {
+            type: "Timeline",
+            text: "Adaptation. From general tools to precision instruments."
+        },
+        "Homogeneous Computing (Traditional)": {
             type: "Tradition",
             text: "Clones. All workers are exactly the same."
         },
@@ -116,89 +136,157 @@ const strategyData = {
             type: "Problem",
             text: "Jack of All Trades. Master of none."
         },
-        "Why Advanced?": {
+        "Why Advanced Architectures?": {
             type: "Driver",
             text: "Need for Speed. Normal cars can't race in F1."
         },
-        "Heterogeneous Computing": {
-            type: "Team",
-            text: "The Avengers. Hulk (GPU), Iron Man (CPU), Vision (FPGA)."
+        "Heterogeneous Computing Definition": {
+            type: "Concept",
+            text: "The Dream Team. Mixing different talents for the best result."
         },
-        "Components": {
+        "Key Components and Functions": {
             type: "Roster",
             text: "The Team Members."
         },
-        "Trade-offs": {
-            type: "Balance",
-            text: "Power vs. Complexity. A Ferrari is hard to fix."
+        "CPU": {
+            type: "Component",
+            text: "The Manager. Handles general tasks and decisions."
         },
-        "Reconfigurable Computing": {
+        "GPU": {
+            type: "Component",
+            text: "The Artist. Paints millions of pixels at once."
+        },
+        "FPGA": {
+            type: "Component",
+            text: "The Shapeshifter. Rewires itself to be whatever tool isn needed."
+        },
+        "Core Components of an FPGA": {
             type: "Tech",
-            text: "Transformer. A robot that turns into a car."
+            text: "Under the Hood. How the shapeshifter works."
         },
-        "Core Components": {
-            type: "Parts",
-            text: "LUTs = Logic choices. Interconnects = Wires."
+        "Programmable Logic Blocks (CLBs)": {
+            type: "Part",
+            text: "Brain Cells. The basic logic units."
         },
-        "Memory-Centric": {
+        "Programmable Interconnects": {
+            type: "Part",
+            text: "Nervous System. Wires that connect the brain cells."
+        },
+        "I/O Blocks": {
+            type: "Part",
+            text: "Hands & Feet. Connecting to the outside world."
+        },
+        "The Problem": {
+            type: "Context",
+            text: "Traffic Jam. Fast CPU, slow road to memory."
+        },
+        "Memory-Centric Approaches": {
             type: "Strategy",
             text: "Move the Gym to the House. Stop commuting."
         },
-        "Processing Near Memory": {
+        "Processing Near Memory (PNM)": {
             type: "Tactic",
             text: "Next Door. Compute lives on the same street."
         },
-        "Processing Using Memory": {
+        "Processing Using Memory (PUM)": {
             type: "Tactic",
             text: "In-House. Compute lives in the spare bedroom."
         },
-        "3D ICs": {
+        "Definition": { // Used for multiple, context depends on section but this is generic fallback
+            type: "Concept",
+            text: "The Core Idea."
+        },
+        "Key Enabling Technologies": {
+            type: "Tech Stack",
+            text: "The Foundation. Tools needed to build upwards."
+        },
+        "Through-Silicon Vias (TSVs)": {
             type: "Innovation",
-            text: "Skyscrapers. Build up, not out."
+            text: "Elevator Shafts. Drilling through floors to connect them."
         },
-        "Enabling Tech": {
-            type: "Glue",
-            text: "TSV = Elevator shaft."
+        "Heterogeneous Integration": {
+            type: "Strategy",
+            text: "Mixed-Use Building. Shops on bottom, apartments on top."
         },
-        "Challenges": {
+        "Wafer Bonding Techniques": {
+            type: "Process",
+            text: "Super Glue. Sticking layers together permanently."
+        },
+        "Challenges in Implementation": {
             type: "Hurdle",
-            text: "Heat. High floors get hot."
+            text: "Heat. High floors get hot and are hard to cool."
         },
-        "Optical Computing": {
-            type: "Physics",
-            text: "Fiber Optics. Data moves at light speed."
+        "Core Components": { // Optical
+            type: "Parts",
+            text: "Lasers (Source) and Waveguides (Roads)."
+        },
+        "Lasers & Waveguides": {
+            type: "Part",
+            text: "Flashlight & Fiber. Generating and guiding the beam."
+        },
+        "Modulators & Resonators": {
+            type: "Part",
+            text: "Shutters. Turning the light on/off to signal 1s and 0s."
+        },
+        "Optical Logic Gates": {
+            type: "Part",
+            text: "Prisms. Doing math with light beams."
         },
         "Advantages": {
             type: "Benefit",
-            text: "Cool & Fast. No resistance = No heat."
+            text: "Cool & Fast. No resistance = No heat = Light speed."
         },
-        "Key Areas of Development": {
+        "Unprecedented Speed": {
+            type: "Benefit",
+            text: "Einstein's Limit. Nothing is faster than light."
+        },
+        "Massive Parallelism": {
+            type: "Benefit",
+            text: "Rainbow. Sending many colors (data) at once."
+        },
+        "Energy Efficiency": {
+            type: "Benefit",
+            text: "Efficient. No friction (resistance) means no wasted energy."
+        },
+        "Current Trends in Advanced Architecture": {
             type: "Focus",
-            text: "AI & Green Tech."
+            text: "The Cutting Edge. What's happening right now."
         },
-        "Heterogeneous": {
+        "Comparative Summary": {
             type: "Review",
-            text: "Specialized Team."
+            text: "Cheat Sheet. Quick comparison of all options."
         },
-        "FPGA": {
-            type: "Review",
-            text: "Chameleon."
+        "Heterogeneous Computing": {
+            type: "Summary",
+            text: "Optimization. Best tool for the job."
         },
-        "Optical": {
-            type: "Review",
-            text: "Photonics."
+        "Reconfigurable (FPGA)": {
+            type: "Summary",
+            text: "Flexibility. Hardware that changes."
         },
-        "Evolution Path": {
+        "Memory-Centric": {
+            type: "Summary",
+            text: "Efficiency. Stop moving data."
+        },
+        "3D ICs": {
+            type: "Summary",
+            text: "Density. Stacking up."
+        },
+        "Optical/Photonic": {
+            type: "Summary",
+            text: "Speed. Computing with light."
+        },
+        "Evolution Path of Computing": {
             type: "Timeline",
             text: "From General CPU to Custom ASIC."
         },
-        "Stages": {
-            type: "Steps",
-            text: "1. Same -> 2. Mixed -> 3. Dedicated."
-        },
-        "Future": {
+        "Future Direction: Convergence and Modularity": {
             type: "Forecast",
-            text: "Chiplets. Buying parts to build a PC, but for chips."
+            text: "Legos. Buying parts (chiplets) to build a custom system."
+        },
+        "Key Drivers": {
+            type: "Motivation",
+            text: "Why? Efficiency, Speed, and Customization."
         }
     },
     // Emerging Trends
