@@ -192,7 +192,31 @@ const strategyData = {
         },
         "3nm Node": {
             type: "Trend",
-            text: "GAAFET (Gate-All-Around). Better control of current than FinFET."
+            text: "GAAFET. The Gate wraps 'All Around' the channel like a fist holding a straw. Maximum control."
+        },
+        "Workflow Stages": {
+            type: "Process",
+            text: "The Recipe. 1. Plan (Spec) -> 2. Cook (Synthesis) -> 3. Taste (Sim/Verif) -> 4. Plate (Layout)."
+        },
+        "Common EDA Tools": {
+            type: "Toolbox",
+            text: "Architect's Toolkit. Like AutoCAD but for microchips. Synopsys & Cadence are the big players."
+        },
+        "AI-Assisted Architecture Optimization": {
+            type: "Evolution",
+            text: "Machine designing Machine. AI finds the best layout faster than humans can."
+        },
+        "Challenges of AI Optimization": {
+            type: "Problem",
+            text: "Black Box. If AI designs it, we might not understand WHY it works (Intepretability)."
+        },
+        "Importance of AI-Assisted": {
+            type: "Benefit",
+            text: "Efficiency. Exploring billions of options in seconds to save money and power."
+        },
+        "Ethical and Security Issues in Hardware Design": {
+            type: "Warning",
+            text: "The Dark Side. Hidden backdoors in chips could leak secrets or disable weapons."
         },
         "RISC-V": {
             type: "Licensing",

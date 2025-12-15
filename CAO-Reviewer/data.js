@@ -487,21 +487,88 @@ const courseData = [
                     {
                         title: "5nm Node",
                         content: [
-                            "Fits more transistors compared to older nodes.",
-                            "Uses FinFET transistors."
+                            "Manufacturing process that fits more transistors in the same chip area compared to older nodes.",
+                            "Uses <span style='color: #4ade80;'>FinFET</span> transistors.",
+                            "Special: Higher availability & efficiency (Low power sans sacrificing speed)."
                         ]
                     },
                     {
                         title: "3nm Node",
                         content: [
-                            "Uses Gate-All-Around (GAA) transistors.",
-                            "Better current control and reduced leakage."
+                            "Uses <span style='color: #4ade80;'>Gate-All-Around (GAA)</span> transistors.",
+                            "Better current control and reduced leakage.",
+                            "Special: Further improves performance, lowers power consumption compared to 5nm."
                         ]
                     }
                 ]
             },
             {
-                title: "Open Hardware & EDA",
+                title: "Workflow & Tools",
+                cards: [
+                    {
+                        title: "Workflow Stages",
+                        content: [
+                            "Specification: Defining system requirements.",
+                            "Synthesis: Translating high-level descriptions into gate-level.",
+                            "Simulation: Testing functional correctness.",
+                            "Verification: Ensuring design meets specs.",
+                            "Layout: Physical placement and routing."
+                        ]
+                    },
+                    {
+                        title: "Common EDA Tools",
+                        content: [
+                            "Cadence Design Systems",
+                            "Synopsys Design Compiler",
+                            "Xilinx Vivado",
+                            "Mentor Graphics",
+                            "KiCad (Open-source)"
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "AI-Assisted Optimization",
+                cards: [
+                    {
+                        title: "AI-Assisted Architecture Optimization",
+                        content: [
+                            "Techniques: Design Space Exploration (DSE), Reinforcement Learning, Predictive Modeling.",
+                            "Applications: Processor design, FPGA optimization, Memory hierarchy tuning."
+                        ]
+                    },
+                    {
+                        title: "Challenges of AI Optimization",
+                        content: [
+                            "Interpretability of AI decisions.",
+                            "Risk of overfitting to training data.",
+                            "Integration with traditional workflows."
+                        ]
+                    },
+                    {
+                        title: "Importance of AI-Assisted",
+                        content: [
+                            "Finds better trade-offs between speed, power, and cost.",
+                            "Speeds up design cycles.",
+                            "Helps create specialized chips (like Google's TPU)."
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Ethical & Security Issues",
+                cards: [
+                    {
+                        title: "Ethical and Security Issues in Hardware Design",
+                        content: [
+                            "Security Threats: Hardware Trojans, Backdoors, Supply Chain Vulnerabilities.",
+                            "Ethical: Surveillance, Data collection, Military applications."
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Open Hardware",
                 cards: [
                     {
                         title: "Open Hardware Initiative",
@@ -526,12 +593,6 @@ const courseData = [
                         title: "EDA (Electronic Design Automation)",
                         content: [
                             "Software tools that assist engineers in designing, simulating, and verifying electronic systems."
-                        ]
-                    },
-                    {
-                        title: "Design Space Exploration (DSE)",
-                        content: [
-                            "AI evaluates thousands of design permutations to find optimal configurations."
                         ]
                     }
                 ]
