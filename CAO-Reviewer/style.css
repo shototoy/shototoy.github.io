@@ -422,34 +422,27 @@ body {
 
 .tree-children {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     width: 100%;
     justify-content: center;
-    flex-wrap: wrap;
     position: relative;
     padding-top: 20px;
 }
 
-/* Horizontal line connecting children tops */
+/* Remove old approximate bar */
 .tree-children::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 20%;
-    /* Approximation - covers middle children */
-    right: 20%;
-    height: 2px;
-    background: #2d3342;
+    display: none;
 }
 
 .child-wrapper {
     position: relative;
     flex: 1;
-    min-width: 280px;
-    max-width: 400px;
+    /* Force equal widths to keep tree balanced */
+    min-width: 0;
+    /* Allow flex shrink if needed, preventing overflow */
 }
 
-/* Vertical line from horizontal bar to child */
+/* Vertical Line Up from Card */
 .child-wrapper::before {
     content: "";
     position: absolute;
@@ -459,4 +452,33 @@ body {
     height: 20px;
     background: #2d3342;
     transform: translateX(-50%);
+}
+
+/* Horizontal Connector Line (New Approach) */
+.child-wrapper::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    /* Aligned with top of vertical connector */
+    height: 2px;
+    background: #2d3342;
+    width: 100%;
+    left: 0;
+}
+
+/* First Child: Line starts from center and goes right */
+.child-wrapper:first-child::after {
+    left: 50%;
+    width: 50%;
+}
+
+/* Last Child: Line starts from left and ends at center */
+.child-wrapper:last-child::after {
+    width: 50%;
+    left: 0;
+}
+
+/* Single Child: No horizontal line needed */
+.child-wrapper:only-child::after {
+    display: none;
 }
