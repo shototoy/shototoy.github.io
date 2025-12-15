@@ -608,6 +608,7 @@ const courseData = [
                 cards: [
                     {
                         title: "Datacenter Architecture",
+                        level: 1,
                         content: [
                             "Design to handle massive, concurrent workloads.",
                             "Goal: Maximize throughput and minimize latency."
@@ -615,6 +616,7 @@ const courseData = [
                     },
                     {
                         title: "Key Server Components",
+                        level: 1,
                         content: [
                             "CPU: High core counts, large L3 caches (Max throughput per watt).",
                             "RAM: Massive capacity (1TB+) using DDR5/HBM.",
@@ -623,24 +625,58 @@ const courseData = [
                         ]
                     },
                     {
-                        title: "Scale-Up vs Scale-Out",
+                        title: "Scaling Models",
+                        level: 1,
                         content: [
-                            "Scale-Up (Vertical): Increase capacity of single server. Simpler but expensive.",
-                            "Scale-Out (Horizontal): Add more servers. Limitless scalability but complex management."
+                            "Strategies for increasing capacity and performance."
+                        ]
+                    },
+                    {
+                        title: "Scale-Up (Vertical)",
+                        level: 2,
+                        content: [
+                            "Increasing capacity of a single server.",
+                            "Pros: Simpler management.",
+                            "Cons: Expensive, hardware limits."
+                        ]
+                    },
+                    {
+                        title: "Scale-Out (Horizontal)",
+                        level: 2,
+                        content: [
+                            "Adding more servers to distribute load.",
+                            "Pros: Limitless scalability, redundancy.",
+                            "Cons: Complex management."
+                        ]
+                    },
+                    {
+                        title: "Datacenter Efficiency",
+                        level: 1,
+                        content: [
+                            "Focus on ultra-low power states and effective cooling."
                         ]
                     },
                     {
                         title: "PUE (Power Usage Effectiveness)",
+                        level: 2,
                         content: [
-                            "Metric measuring datacenter energy efficiency.",
-                            "PUE = Total Facility Energy / IT Equipment Energy (Ideal: 1.0)."
+                            "Metric: Total Energy / IT Energy.",
+                            "Ideal: 1.0 (All power to compute).",
+                            "Typical: 1.2 - 1.6."
                         ]
                     },
                     {
                         title: "Hyper-scale Architecture",
+                        level: 1,
                         content: [
-                            "Hyper-scale: Datacenters by major providers (Google, Amazon) housing millions of servers.",
-                            "Disaggregation: Separating compute, storage, and networking into independent pools.",
+                            "Datacenters by major providers (Google, Amazon) housing millions of servers."
+                        ]
+                    },
+                    {
+                        title: "Disaggregation",
+                        level: 2,
+                        content: [
+                            "Separating compute, storage, and networking into independent pools.",
                             "Benefit: Dynamic allocation and upgrade cycles."
                         ]
                     }
@@ -651,33 +687,37 @@ const courseData = [
                 cards: [
                     {
                         title: "Blockchain Hardware Implementations",
+                        level: 1,
                         content: [
-                            "Specialized ICs designed to efficiently execute cryptographic hashing algorithms (SHA-256).",
-                            "Efficiency Metric: Hash/Second per Watt (H/s/W)."
+                            "Specialized ICs for cryptographic hashing (SHA-256).",
+                            "Metric: Hash/Second per Watt."
                         ]
                     },
                     {
                         title: "ASIC Architecture",
+                        level: 1,
                         content: [
-                            "ASIC: Application-Specific ICs.",
-                            "<span style='color: #4ade80;'>Pipeline Optimization</span>: ASICs contain thousands of highly optimized hardware pipelines.",
-                            "<span style='color: #4ade80;'>No Overhead</span>: Eliminates non-essential features (floating-point, OS).",
-                            "Result: Orders of magnitude greater speed and efficiency."
+                            "Application-Specific ICs.",
+                            "Pipeline Optimization: Thousands of pipelines for specific task.",
+                            "No Overhead: Eliminates non-essential features."
                         ]
                     },
                     {
                         title: "Thermal & Power Constraints",
+                        level: 2,
+                        linkType: "linked",
                         content: [
-                            "Challenge: High density leads to extreme heat generation.",
-                            "Solution: Industrial-scale cooling (Liquid cooling).",
-                            "Energy Consumption: Efficient per hash, but massive global consumption."
+                            "Challenge: High density = Extreme heat.",
+                            "Solution: Industrial-scale cooling (Liquid).",
+                            "Global Impact: Massive electricity consumption."
                         ]
                     },
                     {
                         title: "Transaction Processing",
+                        level: 1,
                         content: [
-                            "Mining: Process of finding a valid hash below target difficulty.",
-                            "Role: Key component enforcing consensus mechanism (Proof-of-Work)."
+                            "Mining: Finding valid hash below target difficulty.",
+                            "Role: Enforcing consensus (Proof-of-Work)."
                         ]
                     }
                 ]
@@ -687,32 +727,58 @@ const courseData = [
                 cards: [
                     {
                         title: "Embedded System",
+                        level: 1,
                         content: [
-                            "Specialized computer system designed to perform dedicated functions.",
-                            "Constraints: High reliability, low power, predictable timing (real-time)."
+                            "Specialized computer system for dedicated functions.",
+                            "Constraints: Reliability, Low Power, Real-Time."
+                        ]
+                    },
+                    {
+                        title: "Real-Time Requirements",
+                        level: 1,
+                        content: [
+                            "Timing Constraints: Must process data within strict time limit.",
+                            "Hard Real-Time: Failure if deadline missed (e.g. Airbag).",
+                            "Soft Real-Time: Performance drop if deadline missed (e.g. Video stream)."
                         ]
                     },
                     {
                         title: "Microcontroller (MCU)",
+                        level: 1,
                         content: [
-                            "Use Case: Simple control loops, sensor reading.",
-                            "Architecture: Single-chip solution (CPU + RAM + Peripherals).",
-                            "Focus: Low power, low cost, dedicated I/O."
+                            "Single-chip solution (CPU + RAM + Peripherals).",
+                            "Focus: Low power, low cost."
                         ]
                     },
                     {
                         title: "Interrupts & Predictability",
+                        level: 1,
                         content: [
-                            "Interrupts: Mechanisms that pause CPU for urgent events.",
-                            "Latency: Time between event and start of ISR. Must be deterministic.",
-                            "Architecture: RTOS and hardware handlers guarantee low latency."
+                            "Interrupts: Pause CPU for urgent events.",
+                            "Latency: Time to start ISR. Must be deterministic."
                         ]
                     },
                     {
-                        title: "Automotive & Industrial",
+                        title: "Applications",
+                        level: 1,
                         content: [
-                            "Automotive ECUs: Highly resilient, dual-core lockstep CPUs (ASIL-D).",
-                            "Industrial (PLC): Ultra-high reliability. Uses deterministic fieldbus protocols (EtherCAT)."
+                            "Deployment examples."
+                        ]
+                    },
+                    {
+                        title: "Automotive ECUs",
+                        level: 2,
+                        content: [
+                            "Manage vehicle functions.",
+                            "Features: Dual-core lockstep CPUs (ASIL-D)."
+                        ]
+                    },
+                    {
+                        title: "Industrial Control (PLC)",
+                        level: 2,
+                        content: [
+                            "Manufacturing process control.",
+                            "Features: Deterministic fieldbus (EtherCAT)."
                         ]
                     }
                 ]
@@ -722,48 +788,66 @@ const courseData = [
                 cards: [
                     {
                         title: "High-Performance Computing (HPC)",
+                        level: 1,
                         content: [
-                            "Parallel processing across tightly coupled resources (supercomputers).",
-                            "Key Metric: FLOPS (Floating-point Operations Per Second)."
+                            "Parallel processing on supercomputers.",
+                            "Metric: FLOPS."
                         ]
                     },
                     {
                         title: "Parallel Processing Models",
+                        level: 1,
                         content: [
-                            "SIMD: Single Instruction, Multiple Data (Vector units).",
-                            "MIMD: Multiple Instruction, Multiple Data (Clusters)."
+                            "How instructions are executed."
+                        ]
+                    },
+                    {
+                        title: "SIMD",
+                        level: 2,
+                        content: [
+                            "Single Instruction, Multiple Data.",
+                            "Example: Vector units."
+                        ]
+                    },
+                    {
+                        title: "MIMD",
+                        level: 2,
+                        content: [
+                            "Multiple Instruction, Multiple Data.",
+                            "Example: Server Clusters."
                         ]
                     },
                     {
                         title: "Interconnect Networks",
+                        level: 1,
                         content: [
-                            "Need: Low-latency, high-bandwidth.",
-                            "Solution: <span style='color: #4ade80;'>InfiniBand</span> (dedicated switched fabric).",
+                            "Need: Low-latency, High-bandwidth communication."
+                        ]
+                    },
+                    {
+                        title: "InfiniBand",
+                        level: 2,
+                        content: [
+                            "Dedicated switched fabric for HPC.",
                             "Topology: Fat-Tree."
                         ]
                     },
                     {
                         title: "Cluster Architecture",
+                        level: 1,
                         content: [
-                            "Nodes: Independent servers.",
-                            "Compute Partition: Running code.",
-                            "Service Partition: Files/Scheduling.",
-                            "Scheduler: Manages job placement (e.g., Slurm)."
+                            "Layout of Supercomputer.",
+                            "Nodes: Compute & Service partitions.",
+                            "Scheduler: Manages jobs (e.g. Slurm)."
                         ]
                     },
                     {
                         title: "Memory Hierarchy in HPC",
+                        level: 1,
                         content: [
-                            "GPU Memory (HBM): High-bandwidth.",
-                            "Shared Memory: Within single node.",
-                            "Distributed Memory: Via Message Passing (MPI)."
-                        ]
-                    },
-                    {
-                        title: "Applications",
-                        content: [
-                            "Large-Scale Modeling: Weather, Nuclear, Fluid dynamics.",
-                            "Requires solving massive matrices simultaneously."
+                            "GPU Memory (HBM): Immediate computation.",
+                            "Shared Memory: Within Node.",
+                            "Distributed Memory: Across Nodes (MPI)."
                         ]
                     }
                 ]
@@ -773,37 +857,57 @@ const courseData = [
                 cards: [
                     {
                         title: "Hardware Virtualization",
+                        level: 1,
                         content: [
-                            "Creating software-based representation of underlying hardware.",
-                            "Hypervisor: Software managing and isolating VMs."
+                            "Software representation of hardware.",
+                            "Hypervisor: Software managing VMs."
                         ]
                     },
                     {
                         title: "Hypervisor Types",
+                        level: 1,
                         content: [
-                            "Type 1 (Bare-Metal): Runs on host hardware (ESXi, Hyper-V). Used in Datacenters.",
-                            "Type 2 (Hosted): Runs within OS (VirtualBox). Used for testing."
+                            "Categorizing Hypervisors."
+                        ]
+                    },
+                    {
+                        title: "Type 1 (Bare-Metal)",
+                        level: 2,
+                        content: [
+                            "Runs directly on hardware (ESXi).",
+                            "Use: Datacenters."
+                        ]
+                    },
+                    {
+                        title: "Type 2 (Hosted)",
+                        level: 2,
+                        content: [
+                            "Runs within OS (VirtualBox).",
+                            "Use: Testing."
                         ]
                     },
                     {
                         title: "CPU Virtualization",
+                        level: 1,
                         content: [
-                            "Hardware-Assisted (VT-x/AMD-V).",
-                            "Adds Root Mode so Hypervisor can manage privileged instructions with minimal overhead."
+                            "Hardware-Assisted (VT-x).",
+                            "Root Mode allows Hypervisor management with low overhead."
                         ]
                     },
                     {
                         title: "I/O & Memory Virtualization",
+                        level: 1,
                         content: [
                             "Memory: Nested Page Tables.",
-                            "I/O: SR-IOV (Pass-Through) allows direct access to NIC/GPU."
+                            "I/O: SR-IOV (Pass-Through)."
                         ]
                     },
                     {
                         title: "Cloud Infrastructure",
+                        level: 1,
                         content: [
-                            "Resource Pooling: Virtualization enables pooling of Compute, Storage, and Network.",
-                            "Basis of IaaS."
+                            "Resource Pooling: Compute + Storage + Network.",
+                            "IaaS foundation."
                         ]
                     }
                 ]
@@ -813,46 +917,79 @@ const courseData = [
                 cards: [
                     {
                         title: "IoT Architecture",
+                        level: 1,
                         content: [
-                            "Design focused on maximizing battery life and minimizing cost.",
-                            "Key Constraint: Energy Harvesting and Ultra-Low Power."
+                            "Max battery life, Min cost.",
+                            "Constraint: Energy Harvesting."
                         ]
                     },
                     {
-                        title: "Edge vs Cloud Processing",
+                        title: "Distributed Compute",
+                        level: 1,
                         content: [
-                            "Cloud: Data sent to datacenter (High latency).",
-                            "Edge: Computation done on device/gateway (Low latency, Privacy)."
+                            "Where processing happens."
+                        ]
+                    },
+                    {
+                        title: "Cloud Processing",
+                        level: 2,
+                        content: [
+                            "Sent to datacenter. High latency."
+                        ]
+                    },
+                    {
+                        title: "Edge Processing",
+                        level: 2,
+                        content: [
+                            "Done on device/gateway. Low latency, Privacy."
                         ]
                     },
                     {
                         title: "Low-Power Cores",
+                        level: 1,
                         content: [
-                            "Example: ARM Cortex-M.",
-                            "Features: Deep sleep modes, quick wake-up.",
-                            "Voltage Scaling: DVFS (Dynamic Voltage and Frequency Scaling)."
+                            "ARM Cortex-M.",
+                            "Deep sleep, DVFS."
                         ]
                     },
                     {
                         title: "Sensor Integration",
+                        level: 1,
                         content: [
-                            "ADCs: Read real-world data (Temp, light).",
-                            "DSPs: Handle signal processing before CPU."
+                            "ADCs (Real-world data) & DSPs (Signal processing)."
                         ]
                     },
                     {
                         title: "Hardware Security",
+                        level: 1,
                         content: [
-                            "Challenge: Physical accessibility.",
-                            "Solution: <span style='color: #4ade80;'>ARM TrustZone</span> (Secure World vs Normal World)."
+                            "TrustZone: Secure World vs Normal World.",
+                            "Protects cryptographic material."
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Summary",
+                cards: [
+                    {
+                        title: "Synthesis",
+                        level: 1,
+                        content: [
+                            "Future: Deeply integrated heterogeneity.",
+                            "Efficiency: Performance per Watt is key."
                         ]
                     },
                     {
-                        title: "Synthesis",
+                        title: "Module Summary",
+                        level: 1,
                         content: [
-                            "Future: Deeply integrated, heterogeneous architectures.",
-                            "Pervasiveness: From PetaFLOP supercomputers to milliwatt sensors.",
-                            "Efficiency: Max performance per Watt."
+                            "Datacenters: Throughput & PUE.",
+                            "Blockchain: ASIC pipelines.",
+                            "Embedded: Real-Time & Low Power.",
+                            "HPC: Parallelism & InfiniBand.",
+                            "Cloud: Virtualization.",
+                            "IoT: Security & Edge."
                         ]
                     }
                 ]

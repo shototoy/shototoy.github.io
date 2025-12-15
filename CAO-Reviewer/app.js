@@ -72,6 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function createCard(cardData) {
         const card = document.createElement('div');
         card.className = 'info-card';
+        if (cardData.level === 2) {
+            card.classList.add('card-level-2');
+        }
+        if (cardData.linkType === 'linked') {
+            card.classList.add('card-linked');
+        }
 
         // Wrapper for main content
         const contentWrapper = document.createElement('div');
