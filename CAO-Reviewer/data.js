@@ -668,28 +668,7 @@ const courseData = [
                     }
                 ]
             }
-            {
-                title: "IX. Evolution Path",
-                groups: [
-                    {
-                        isTree: true,
-                        root: {
-                            title: "Evolution Path",
-                            content: ["From General to Specific."]
-                        },
-                        children: [
-                            {
-                                title: "Stages",
-                                content: ["Homogeneous -> Heterogeneous -> Specialized."]
-                            },
-                            {
-                                title: "Future",
-                                content: ["Convergence & Modularity (Chiplets)."]
-                            }
-                        ]
-                    }
-                ]
-            }
+
         ]
     },
     {
