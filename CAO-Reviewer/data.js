@@ -276,19 +276,50 @@ const courseData = [
                 title: "I. Introduction & Homogeneous",
                 groups: [
                     {
+                        // Intro Text Card
+                        cards: [
+                            {
+                                title: "Introduction to Advanced Architectures",
+                                content: [
+                                    "Modern computer system designs integrate innovative hardware structures and advanced processing technologies to achieve superior performance, flexibility, scalability, and energy efficiency, moving beyond the limits of traditional computing."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        // Evolution Comparison
                         isTree: true,
                         root: {
-                            title: "Homogeneous Computing",
-                            content: ["Traditional multi-core CPUs.", "Identical units."]
+                            title: "Evolution: Traditional to Advanced",
+                            content: ["Moving from One-Size-Fits-All to Specialization."]
                         },
                         children: [
                             {
-                                title: "Limitations",
-                                content: ["Inefficient for diverse workloads.", "Power hungry."]
+                                title: "Homogeneous Computing (Traditional)",
+                                content: [
+                                    "Systems using identical processor cores/units for all tasks (e.g., multi-core CPUs).",
+                                    "Uniform architecture and simplified programming."
+                                ]
                             },
                             {
-                                title: "Why Advanced?",
-                                content: ["Modern apps (AI/IoT) need specialization."]
+                                title: "Limitations",
+                                content: [
+                                    "Inefficient for diverse, specialized workloads.",
+                                    "High power consumption for specialized tasks.",
+                                    "One-size-fits-all approach is inadequate for AI and real-time processing."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        // Why Advanced?
+                        cards: [
+                            {
+                                title: "Why Advanced Architectures?",
+                                content: [
+                                    "Modern applications like Artificial Intelligence, big data analytics, real-time processing, and IoT demand diverse and specialized computational capabilities that monolithic, homogeneous systems cannot efficiently satisfy.",
+                                    "This necessity drives the push for domain-specific and heterogeneous designs."
+                                ]
                             }
                         ]
                     }
@@ -298,19 +329,42 @@ const courseData = [
                 title: "II. Heterogeneous Computing",
                 groups: [
                     {
+                        cards: [
+                            {
+                                title: "Heterogeneous Computing Definition",
+                                content: [
+                                    "Heterogeneous computing utilizes multiple processor types (CPU, GPU, FPGA) working collaboratively, with each component optimized for specific segments of the workload."
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         isTree: true,
                         root: {
-                            title: "Heterogeneous Computing",
-                            content: ["CPU + GPU + FPGA working together.", "Optimized for segments."]
+                            title: "Key Components and Functions",
+                            content: ["Components working collaboratively."]
                         },
                         children: [
                             {
-                                title: "Components",
-                                content: ["CPU (Control)", "GPU (Parallel)", "FPGA (Custom)."]
+                                title: "CPU",
+                                content: [
+                                    "<span style='color: #4ade80;'>Function</span>: General-purpose, control logic, sequential processing.",
+                                    "<span style='color: #4ade80;'>Role</span>: Flexibility, complex decision-making, OS management."
+                                ]
                             },
                             {
-                                title: "Trade-offs",
-                                content: ["Pro: Performance/Power.", "Con: Complex coding."]
+                                title: "GPU",
+                                content: [
+                                    "<span style='color: #4ade80;'>Function</span>: Massive parallel processing, floating-point mathematical computations.",
+                                    "<span style='color: #4ade80;'>Role</span>: AI/ML training, graphics rendering, thousands of simultaneous operations."
+                                ]
+                            },
+                            {
+                                title: "FPGA",
+                                content: [
+                                    "<span style='color: #4ade80;'>Function</span>: Reconfigurable hardware for custom acceleration.",
+                                    "<span style='color: #4ade80;'>Role</span>: Protocol handling, specific function acceleration (e.g., encryption), low-latency tasks."
+                                ]
                             }
                         ]
                     }
