@@ -382,6 +382,8 @@ body {
     margin-bottom: 20px;
     max-width: 600px;
     width: 100%;
+    position: relative;
+    /* Fix for connector line positioning */
 }
 
 .tree-root .info-card {
