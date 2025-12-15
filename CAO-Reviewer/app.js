@@ -3,8 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentContainer = document.getElementById('contentContainer');
     const currentTopicTitle = document.getElementById('currentTopicTitle');
     const searchInput = document.getElementById('searchInput');
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
 
     let currentTopicId = null;
+
+    // Sidebar Toggle Logic
+    if (menuToggle && sidebar && sidebarOverlay) {
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
 
     // Initialize
     renderTabs();
@@ -20,7 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
             el.className = 'nav-item';
             el.textContent = topic.title;
             el.dataset.id = topic.id;
-            el.onclick = () => selectTopic(topic.id);
+            el.onclick = () => {
+                selectTopic(topic.id);
+                // Close sidebar on mobile selection
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                }
+            };
             tabsNav.appendChild(el);
         });
     }

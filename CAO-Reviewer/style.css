@@ -485,3 +485,120 @@ body {
 .child-wrapper:only-child::after {
     display: none;
 }
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 16px;
+}
+
+.menu-toggle:hover {
+    color: var(--accent);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        /* Cover most of width */
+        max-width: 300px;
+        z-index: 1000;
+        transform: translateX(-100%);
+        /* Hidden by default */
+        transition: transform 0.3s ease;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .top-bar {
+        padding: 0 16px;
+    }
+
+    .search-box input {
+        width: 150px;
+        /* Smaller search box */
+    }
+
+    .search-box input:focus {
+        width: 180px;
+    }
+
+    .scrolling-content {
+        padding: 16px;
+    }
+
+    /* Adjust Card Widths */
+    .tree-children {
+        flex-direction: column;
+        /* Stack children vertically on mobile */
+        gap: 20px;
+    }
+
+    .tree-root::after {
+        display: none;
+        /* Hide connector lines on mobile vertical stack */
+    }
+
+    .child-wrapper::before,
+    .child-wrapper::after {
+        display: none;
+        /* Hide connector lines */
+    }
+
+    .child-wrapper {
+        width: 100%;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+
+    /* Font Adjustments */
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .top-bar h2 {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
