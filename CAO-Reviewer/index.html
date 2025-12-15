@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAO Exam Reviewer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h1>CAO Reviewer</h1>
+                <p>Exam Ref</p>
+            </div>
+            <nav class="tabs-nav" id="tabsNav">
+                <!-- Tabs injected by JS -->
+            </nav>
+        </aside>
+        <main class="content-area">
+            <header class="top-bar">
+                <h2 id="currentTopicTitle">Select a Topic</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search keywords...">
+                </div>
+            </header>
+            <div id="contentContainer" class="scrolling-content">
+                <!-- Content injected by JS -->
+                <div class="placeholder-msg">Select a module from the sidebar to begin reviewing.</div>
+            </div>
+        </main>
+    </div>
+    <script src="example.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
