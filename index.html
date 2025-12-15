@@ -2,33 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to Shototoy Projects</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #111;
-      color: #eee;
-      text-align: center;
-      padding-top: 50px;
-    }
-
-    a {
-      color: #ffd700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAO Exam Reviewer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-  <h1>Welcome to Shototoy Projects</h1>
-  <p>Select a project to explore:</p>
-  <li><a href="/Salpakan-Imperium/">Salpakan Imperium</a></li>
-  <li><a href="/salpakan-game/">Salpakan Imperium Browser Game</a></li>
-  <li><a href="https://salpakan-game.onrender.com/">Salpakan Imperium Server</a></li>
-  <li><a href="/CAO-Reviewer/">CAO Reviewer (Computer Architecture)</a></li>
-  </ul>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h1>CAO Reviewer</h1>
+                <p>Exam Ref</p>
+            </div>
+            <nav class="tabs-nav" id="tabsNav">
+                <!-- Tabs injected by JS -->
+            </nav>
+        </aside>
+        <main class="content-area">
+            <header class="top-bar">
+                <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h2 id="currentTopicTitle">Select a Topic</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search keywords...">
+                </div>
+            </header>
+            <div id="contentContainer" class="scrolling-content">
+                <!-- Content injected by JS -->
+                <div class="placeholder-msg">Select a module from the sidebar to begin reviewing.</div>
+            </div>
+        </main>
+    </div>
+    <script src="example.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
