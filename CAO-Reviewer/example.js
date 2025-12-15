@@ -232,13 +232,49 @@ const strategyData = {
             type: "Formula",
             text: "PUE. Lower is better. 1.0 means 100% of power goes to computing, 0% to cooling."
         },
-        "ASIC": {
+        "Hyper-scale Architecture": {
+            type: "Analogy",
+            text: "Costco. Buying (and building) in bulk is cheaper and easier to manage."
+        },
+        "Blockchain Hardware Implementations": {
+            type: "Definition",
+            text: "Pickaxes. Specialized tools for mining digital gold."
+        },
+        "ASIC Architecture": {
             type: "Evolution",
             text: "General -> Specific. ASIC is the finish line for efficiency but lacks flexibility."
         },
-        "Microcontroller (MCU)": {
-            type: "Constraint",
-            text: "SWaP (Size, Weight, Power). All-in-one chip."
+        "Thermal & Power Constraints": {
+            type: "Problem",
+            text: "Meltdown. Putting 1000 heaters in a room requires a really big ac."
+        },
+        "Transaction Processing": {
+            type: "Process",
+            text: "Lottery. Millions of tickets (hashes) bought to find the one winner."
+        },
+        "Automotive & Industrial": {
+            type: "Safety",
+            text: "Mission Critical. Airbags MUST deploy. Machines MUST stop. No blue screens allowed."
+        },
+        "Interconnect Networks": {
+            type: "Infrastructure",
+            text: "Expressway. InfiniBand is the dedicated highway for supercomputers to avoid local traffic."
+        },
+        "Cluster Architecture": {
+            type: "Organization",
+            text: "The Hive. Thousands of bees (nodes) working under one Queen (Scheduler)."
+        },
+        "Cloud Infrastructure": {
+            type: "Concept",
+            text: "Rental. You don't own the car, you just pay for the miles (time) you drive it."
+        },
+        "Edge vs Cloud Processing": {
+            type: "Tradeoff",
+            text: "Pizza. Frozen (Cloud) takes time to cook. Delivery (Edge) is ready to eat now."
+        },
+        "Hardware Security": {
+            type: "Metaphor",
+            text: "The Vault. TrustZone is a steel room inside the house that visitors can't enter."
         }
     }
 };

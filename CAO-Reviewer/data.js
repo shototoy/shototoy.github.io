@@ -604,24 +604,7 @@ const courseData = [
         title: "Specialized & Applied",
         sections: [
             {
-                title: "Definitions",
-                cards: [
-                    {
-                        title: "Specialized Architecture",
-                        content: [
-                            "Designing processor optimized for a specific, narrow set of tasks."
-                        ]
-                    },
-                    {
-                        title: "Applied Architecture",
-                        content: [
-                            "Deployment/optimization of hardware within real-world operational environments."
-                        ]
-                    }
-                ]
-            },
-            {
-                title: "Datacenter",
+                title: "I. Server & Datacenter",
                 cards: [
                     {
                         title: "Datacenter Architecture",
@@ -631,139 +614,245 @@ const courseData = [
                         ]
                     },
                     {
-                        title: "Scale-Up (Vertical)",
+                        title: "Key Server Components",
                         content: [
-                            "Increasing capacity of a single server."
+                            "CPU: High core counts, large L3 caches (Max throughput per watt).",
+                            "RAM: Massive capacity (1TB+) using DDR5/HBM.",
+                            "NIC: High-speed (25G-400G) with RDMA.",
+                            "Storage: Low-latency NVMe SSDs."
                         ]
                     },
                     {
-                        title: "Scale-Out (Horizontal)",
+                        title: "Scale-Up vs Scale-Out",
                         content: [
-                            "Adding more servers to distribute load."
+                            "Scale-Up (Vertical): Increase capacity of single server. Simpler but expensive.",
+                            "Scale-Out (Horizontal): Add more servers. Limitless scalability but complex management."
                         ]
                     },
                     {
                         title: "PUE (Power Usage Effectiveness)",
                         content: [
                             "Metric measuring datacenter energy efficiency.",
-                            "PUE = Total Facility Energy / IT Equipment Energy.",
-                            "Ideal PUE: 1.0."
+                            "PUE = Total Facility Energy / IT Equipment Energy (Ideal: 1.0)."
+                        ]
+                    },
+                    {
+                        title: "Hyper-scale Architecture",
+                        content: [
+                            "Hyper-scale: Datacenters by major providers (Google, Amazon) housing millions of servers.",
+                            "Disaggregation: Separating compute, storage, and networking into independent pools.",
+                            "Benefit: Dynamic allocation and upgrade cycles."
                         ]
                     }
                 ]
             },
             {
-                title: "Hardware",
+                title: "II. Blockchain Hardware",
                 cards: [
                     {
-                        title: "ASIC",
+                        title: "Blockchain Hardware Implementations",
                         content: [
-                            "Application-Specific ICs.",
-                            "Highly optimized hardware pipelines designed only to perform required hash function.",
-                            "No overhead."
+                            "Specialized ICs designed to efficiently execute cryptographic hashing algorithms (SHA-256).",
+                            "Efficiency Metric: Hash/Second per Watt (H/s/W)."
                         ]
                     },
                     {
+                        title: "ASIC Architecture",
+                        content: [
+                            "ASIC: Application-Specific ICs.",
+                            "<span style='color: #4ade80;'>Pipeline Optimization</span>: ASICs contain thousands of highly optimized hardware pipelines.",
+                            "<span style='color: #4ade80;'>No Overhead</span>: Eliminates non-essential features (floating-point, OS).",
+                            "Result: Orders of magnitude greater speed and efficiency."
+                        ]
+                    },
+                    {
+                        title: "Thermal & Power Constraints",
+                        content: [
+                            "Challenge: High density leads to extreme heat generation.",
+                            "Solution: Industrial-scale cooling (Liquid cooling).",
+                            "Energy Consumption: Efficient per hash, but massive global consumption."
+                        ]
+                    },
+                    {
+                        title: "Transaction Processing",
+                        content: [
+                            "Mining: Process of finding a valid hash below target difficulty.",
+                            "Role: Key component enforcing consensus mechanism (Proof-of-Work)."
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "III. Real-Time & Embedded",
+                cards: [
+                    {
                         title: "Embedded System",
                         content: [
-                            "Specialized computer system designed to perform one or a few dedicated functions.",
-                            "Constraints: High reliability, low power, predictability."
+                            "Specialized computer system designed to perform dedicated functions.",
+                            "Constraints: High reliability, low power, predictable timing (real-time)."
                         ]
                     },
                     {
                         title: "Microcontroller (MCU)",
                         content: [
-                            "Single-chip solution integrating CPU, memory, and peripherals."
+                            "Use Case: Simple control loops, sensor reading.",
+                            "Architecture: Single-chip solution (CPU + RAM + Peripherals).",
+                            "Focus: Low power, low cost, dedicated I/O."
                         ]
                     },
                     {
-                        title: "Interrupts",
+                        title: "Interrupts & Predictability",
                         content: [
-                            "Mechanisms that cause CPU to pause execution and service urgent external event."
+                            "Interrupts: Mechanisms that pause CPU for urgent events.",
+                            "Latency: Time between event and start of ISR. Must be deterministic.",
+                            "Architecture: RTOS and hardware handlers guarantee low latency."
                         ]
                     },
                     {
-                        title: "Latency (Real-Time)",
+                        title: "Automotive & Industrial",
                         content: [
-                            "Time between event occurrence and start of ISR.",
-                            "Must be deterministic."
+                            "Automotive ECUs: Highly resilient, dual-core lockstep CPUs (ASIL-D).",
+                            "Industrial (PLC): Ultra-high reliability. Uses deterministic fieldbus protocols (EtherCAT)."
                         ]
                     }
                 ]
             },
             {
-                title: "HPC",
+                title: "IV. HPC Architecture",
                 cards: [
                     {
                         title: "High-Performance Computing (HPC)",
                         content: [
-                            "Use of parallel processing to solve complex problems quickly."
+                            "Parallel processing across tightly coupled resources (supercomputers).",
+                            "Key Metric: FLOPS (Floating-point Operations Per Second)."
                         ]
                     },
                     {
-                        title: "FLOPS",
+                        title: "Parallel Processing Models",
                         content: [
-                            "Floating-point Operations Per Second.",
-                            "Measures speed of calculations."
+                            "SIMD: Single Instruction, Multiple Data (Vector units).",
+                            "MIMD: Multiple Instruction, Multiple Data (Clusters)."
                         ]
                     },
                     {
-                        title: "SIMD",
+                        title: "Interconnect Networks",
                         content: [
-                            "Single Instruction, Multiple Data.",
+                            "Need: Low-latency, high-bandwidth.",
+                            "Solution: <span style='color: #4ade80;'>InfiniBand</span> (dedicated switched fabric).",
+                            "Topology: Fat-Tree."
                         ]
                     },
                     {
-                        title: "MIMD",
+                        title: "Cluster Architecture",
                         content: [
-                            "Multiple Instruction, Multiple Data.",
+                            "Nodes: Independent servers.",
+                            "Compute Partition: Running code.",
+                            "Service Partition: Files/Scheduling.",
+                            "Scheduler: Manages job placement (e.g., Slurm)."
+                        ]
+                    },
+                    {
+                        title: "Memory Hierarchy in HPC",
+                        content: [
+                            "GPU Memory (HBM): High-bandwidth.",
+                            "Shared Memory: Within single node.",
+                            "Distributed Memory: Via Message Passing (MPI)."
+                        ]
+                    },
+                    {
+                        title: "Applications",
+                        content: [
+                            "Large-Scale Modeling: Weather, Nuclear, Fluid dynamics.",
+                            "Requires solving massive matrices simultaneously."
                         ]
                     }
                 ]
             },
             {
-                title: "Virtualization & IoT",
+                title: "V. Virtualization & Cloud",
                 cards: [
                     {
-                        title: "Virtualization",
+                        title: "Hardware Virtualization",
                         content: [
                             "Creating software-based representation of underlying hardware.",
+                            "Hypervisor: Software managing and isolating VMs."
                         ]
                     },
                     {
-                        title: "Hypervisor",
+                        title: "Hypervisor Types",
                         content: [
-                            "Layer of software that manages and isolates virtual machines."
+                            "Type 1 (Bare-Metal): Runs on host hardware (ESXi, Hyper-V). Used in Datacenters.",
+                            "Type 2 (Hosted): Runs within OS (VirtualBox). Used for testing."
                         ]
                     },
                     {
-                        title: "Type 1 Hypervisor",
+                        title: "CPU Virtualization",
                         content: [
-                            "Bare-Metal. Runs directly on host hardware."
+                            "Hardware-Assisted (VT-x/AMD-V).",
+                            "Adds Root Mode so Hypervisor can manage privileged instructions with minimal overhead."
                         ]
                     },
                     {
-                        title: "Type 2 Hypervisor",
+                        title: "I/O & Memory Virtualization",
                         content: [
-                            "Hosted. Runs as an application within an OS."
+                            "Memory: Nested Page Tables.",
+                            "I/O: SR-IOV (Pass-Through) allows direct access to NIC/GPU."
                         ]
                     },
+                    {
+                        title: "Cloud Infrastructure",
+                        content: [
+                            "Resource Pooling: Virtualization enables pooling of Compute, Storage, and Network.",
+                            "Basis of IaaS."
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "VI. IoT Architecture",
+                cards: [
                     {
                         title: "IoT Architecture",
                         content: [
-                            "Focused on maximizing battery life and minimizing cost."
+                            "Design focused on maximizing battery life and minimizing cost.",
+                            "Key Constraint: Energy Harvesting and Ultra-Low Power."
                         ]
                     },
                     {
-                        title: "Edge Processing",
+                        title: "Edge vs Cloud Processing",
                         content: [
-                            "Computation is done on the device or nearby gateway (not Cloud)."
+                            "Cloud: Data sent to datacenter (High latency).",
+                            "Edge: Computation done on device/gateway (Low latency, Privacy)."
                         ]
                     },
                     {
-                        title: "TrustZone",
+                        title: "Low-Power Cores",
                         content: [
-                            "Hardware feature creating two execution environments (Secure vs Normal)."
+                            "Example: ARM Cortex-M.",
+                            "Features: Deep sleep modes, quick wake-up.",
+                            "Voltage Scaling: DVFS (Dynamic Voltage and Frequency Scaling)."
+                        ]
+                    },
+                    {
+                        title: "Sensor Integration",
+                        content: [
+                            "ADCs: Read real-world data (Temp, light).",
+                            "DSPs: Handle signal processing before CPU."
+                        ]
+                    },
+                    {
+                        title: "Hardware Security",
+                        content: [
+                            "Challenge: Physical accessibility.",
+                            "Solution: <span style='color: #4ade80;'>ARM TrustZone</span> (Secure World vs Normal World)."
+                        ]
+                    },
+                    {
+                        title: "Synthesis",
+                        content: [
+                            "Future: Deeply integrated, heterogeneous architectures.",
+                            "Pervasiveness: From PetaFLOP supercomputers to milliwatt sensors.",
+                            "Efficiency: Max performance per Watt."
                         ]
                     }
                 ]
