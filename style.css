@@ -1,663 +1,346 @@
-:root {
-    --bg-dark: #0f1115;
-    --bg-panel: #181b21;
-    --bg-card: #22262e;
-    --accent: #3a86ff;
-    --accent-glow: rgba(58, 134, 255, 0.3);
-    --text-main: #e0e6ed;
-    --text-muted: #94a3b8;
-    --border: #2d3342;
-    --font-sans: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-}
-
+/* GLOBAL RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    height: 100vh;
-    overflow: hidden;
+:root {
+    --primary-color: #00ff88;
+    --primary-dark: #00cc6a;
+    --bg-dark: #0a1f13;
+    --card-bg: rgba(20, 50, 35, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #e0fcec;
+    --text-muted: #8fb39e;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.app-container {
-    display: flex;
+html {
+    width: 100%;
     height: 100%;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 280px;
-    background-color: var(--bg-panel);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-}
-
-.logo-area {
-    padding: 24px;
-    border-bottom: 1px solid var(--border);
-}
-
-.logo-area h1 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.5px;
-}
-
-.logo-area p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.tabs-nav {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.nav-item {
-    padding: 12px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    border: 1px solid transparent;
-}
-
-.nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-    color: var(--text-main);
-}
-
-.nav-item.active {
-    background-color: rgba(58, 134, 255, 0.1);
-    color: var(--accent);
-    border-color: rgba(58, 134, 255, 0.2);
-    font-weight: 600;
-}
-
-/* Main Content */
-.content-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-image: radial-gradient(circle at top right, #1a202c 0%, transparent 40%);
-}
-
-.top-bar {
-    height: 70px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 32px;
-    background-color: rgba(15, 17, 21, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 10;
-}
-
-.top-bar h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.search-box input {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    outline: none;
-    width: 250px;
-    transition: width 0.3s ease;
-}
-
-.search-box input:focus {
-    border-color: var(--accent);
-    width: 300px;
-    box-shadow: 0 0 0 2px var(--accent-glow);
-}
-
-.scrolling-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 32px;
-    position: relative;
-    scroll-behavior: smooth;
-}
-
-/* Content Cards */
-.topic-section {
-    margin-bottom: 48px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-    color: var(--accent);
-    border-left: 4px solid var(--accent);
-    padding-left: 12px;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-/* Flip Card / Hover Effect */
-.info-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
     overflow: hidden;
-    /* Ensure content is above the overlay initially if needed, though we will use opacity */
+    /* ABSOLUTE LOCK on the root */
 }
 
-.info-card:hover,
-.info-card.mobile-active {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent);
+body {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, #113622 0%, #050f08 100%);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow: hidden;
+    /* Double lock */
+    padding: 20px;
+    /* The requested frame padding */
+    display: flex;
+    flex-direction: column;
 }
 
-.card-content-wrapper {
-    transition: opacity 0.3s ease;
-}
-
-.info-card:hover .card-content-wrapper,
-.info-card.mobile-active .card-content-wrapper {
-    opacity: 0.1;
-    /* Fade out content slightly */
-    filter: blur(2px);
-}
-
-.strategy-overlay {
-    position: absolute;
+/* BACKGROUND DECORATION */
+.overlay-svg {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.95);
-    /* Deep dark blue overlay */
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* MAIN LAYOUT CONTROLLER */
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    pointer-events: none;
-    /* Let clicks pass through if needed */
-    z-index: 2;
+    /* Ensure this internal container never causes overflow itself */
+    overflow: hidden;
+}
+
+/* HEADER SECTION (Fixed Top) */
+.header-section {
+    flex: 0 0 auto;
+    /* Don't grow, don't shrink */
     text-align: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
 }
 
-.info-card:hover .strategy-overlay,
-.info-card.mobile-active .strategy-overlay {
-    opacity: 1;
-    transform: translateY(0);
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    background: linear-gradient(135deg, #fff 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    text-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
 }
 
-.strategy-type {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    margin-bottom: 12px;
-    font-weight: 700;
-    background: rgba(58, 134, 255, 0.1);
-    padding: 4px 12px;
-    border-radius: 20px;
-}
-
-.strategy-text {
+.subtitle {
     font-size: 1.1rem;
-    color: #fff;
-    font-weight: 500;
-    line-height: 1.5;
-    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* SCROLL CONTAINER (The ONLY Scrollable Area) */
+.scroll-container {
+    flex: 1 1 auto;
+    /* Grow to fill space */
+    min-height: 0;
+    /* CRITICAL: Enables scrolling in nested flex containers */
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 5px 10px;
+    /* Inner padding for visual clearance */
+}
+
+/* Custom Scrollbar */
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 3px;
+}
+
+/* PROJECT GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* PROJECT CARD */
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.15);
+    background: rgba(30, 70, 50, 0.7);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .card-header {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #4ade80;
-    /* Answer Green */
+    margin-bottom: 15px;
+}
+
+.project-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    position: relative;
-    z-index: 1;
+    gap: 10px;
 }
 
-.card-body {
-    font-size: 0.95rem;
-    line-height: 1.6;
+.project-desc {
     color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-.card-body ul {
-    list-style-type: none;
-    padding-left: 0;
+.card-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.card-body li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 16px;
-}
-
-.card-body li::before {
-    content: "•";
-    color: var(--accent);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.sub-list {
-    margin-top: 8px;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 12px;
-    border-radius: 6px;
-    border-left: 2px solid var(--text-muted);
-}
-
-.example-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    background: rgba(58, 134, 255, 0.15);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-right: 6px;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.highlight {
-    color: #fff;
+/* BUTTONS */
+.action-btn {
+    appearance: none;
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    padding: 10px 24px;
+    border-radius: 100px;
     font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.action-btn:hover {
+    background: var(--primary-color);
+    color: #00331a;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    transform: scale(1.02);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+.action-btn::after {
+    content: '→';
+    font-family: inherit;
+    transition: transform 0.2s;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--bg-dark);
+.action-btn:hover::after {
+    transform: translateX(4px);
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 4px;
+/* MODAL */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 15, 8, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #4a5568;
+.modal-backdrop.active {
+    opacity: 1;
 }
 
-/* Hierarchy / Tree Styles */
-.card-level-2 {
-    border-left: 4px solid #4ade80;
-    /* Match title color */
-    background: linear-gradient(90deg, rgba(74, 222, 128, 0.05) 0%, rgba(34, 38, 46, 0) 100%);
+.modal-card {
+    background: linear-gradient(145deg, #1a4d33, #0d2e1e);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.card-level-2 .card-header::before {
-    content: "";
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 1.2em;
-    color: #4ade80;
-    transform: translateY(-2px);
+.modal-backdrop.active .modal-card {
+    transform: scale(1);
 }
 
-/* For linked cards that are not strict children but follow-ups */
-.card-linked {
-    border-left: 4px solid var(--accent);
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.2s;
 }
 
-.card-linked .card-header::before {
-    content: "";
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 1.2em;
-    color: var(--accent);
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
 }
 
-
-/* Group Divisions */
-.group-division {
-    margin-bottom: 60px;
-    /* Increased whitespace for separation */
-    padding-bottom: 0;
-    border-bottom: none;
+.modal-title {
+    margin: 0 0 20px 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    text-align: center;
 }
 
-.group-division:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-/* Tree Layout Styles */
-.tree-wrapper {
+.build-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 20px 0;
+    gap: 10px;
 }
 
-.tree-root {
-    z-index: 2;
-    margin-bottom: 20px;
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    /* Fix for connector line positioning */
+.build-link {
+    display: block;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s;
 }
 
-.tree-root .info-card {
-    border-color: #4ade80;
-    /* Highlight root */
-    box-shadow: 0 0 15px rgba(74, 222, 128, 0.1);
+.build-link:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--primary-color);
 }
 
-.tree-connector-vertical {
-    width: 2px;
-    height: 20px;
-    background: #4ade80;
-    /* Green line */
-    position: absolute;
-    top: 80px;
-    /* Adjust based on root card height approx */
-    /* This depends on content, dynamic approach is better but CSS is simpler */
-    /* Actually better: use ::after on root */
-    display: none;
-    /* Removing simple dictation */
-}
-
-/* Better Line Approach */
-.tree-root::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    /* extend below root */
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: #2d3342;
-    /* Line color */
-    transform: translateX(-50%);
-}
-
-.tree-children {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    padding-top: 20px;
-}
-
-/* Remove old approximate bar */
-.tree-children::before {
-    display: none;
-}
-
-.child-wrapper {
-    position: relative;
-    flex: 1;
-    /* Force equal widths to keep tree balanced */
-    min-width: 0;
-    /* Allow flex shrink if needed, preventing overflow */
-}
-
-/* Vertical Line Up from Card */
-.child-wrapper::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: #2d3342;
-    transform: translateX(-50%);
-}
-
-/* Horizontal Connector Line (New Approach) */
-.child-wrapper::after {
-    content: "";
-    position: absolute;
-    top: -20px;
-    /* Aligned with top of vertical connector */
-    height: 2px;
-    background: #2d3342;
-    width: 100%;
-    left: 0;
-}
-
-/* First Child: Line starts from center and goes right */
-.child-wrapper:first-child::after {
-    left: 50%;
-    width: 50%;
-}
-
-/* Last Child: Line starts from left and ends at center */
-.child-wrapper:last-child::after {
-    width: 50%;
-    left: 0;
-}
-
-/* Single Child: No horizontal line needed */
-.child-wrapper:only-child::after {
-    display: none;
-}
-
-/* Menu Toggle Button */
-.menu-toggle {
-    display: none;
-    /* Hidden on desktop */
-    background: none;
-    border: none;
-    color: var(--text-main);
-    cursor: pointer;
-    padding: 8px;
-    margin-right: 16px;
-}
-
-.menu-toggle:hover {
-    color: var(--accent);
-}
-
-/* Responsive Styles */
-/* Responsive Styles */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 80%;
-        max-width: 300px;
-        z-index: 1000;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    /* Overlay when sidebar is open */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 999;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        display: block;
-        opacity: 1;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .top-bar {
-        padding: 0 12px;
-        height: 60px;
-    }
-
-    .search-box input {
-        width: 120px;
-        font-size: 0.8rem;
-    }
-
-    .search-box input:focus {
-        width: 150px;
-    }
-
-    /* Minimize Content Spacing */
-    .scrolling-content {
-        padding: 12px;
-    }
-
-    .topic-section {
-        margin-bottom: 32px;
-    }
-
-    .group-division {
-        margin-bottom: 32px;
-    }
-
-    .card-grid {
-        gap: 12px;
-        grid-template-columns: 1fr;
-        /* Stack standard grid cards */
-    }
-
-    .info-card {
-        padding: 16px;
-        /* Reduced padding */
-    }
-
-    /* Tree Layout - Keep in Row, scale down */
-    .tree-children {
-        flex-direction: row;
-        /* Keep row */
-        gap: 8px;
-        /* Minimize gap */
-        overflow-x: auto;
-        /* Allow scroll if absolutely necessary but try to fit */
-        padding-bottom: 8px;
-    }
-
-    .child-wrapper {
-        min-width: 0;
-        /* Allow shrinking */
-        flex: 1;
-        /* Distribute space */
-    }
-
-    /* Ensure lines still look okay or hide them if too cramped */
-    .child-wrapper::before,
-    .tree-root::after {
-        height: 15px;
-        /* Shorter vertical lines */
-    }
-
-    .child-wrapper::before {
-        top: -15px;
-    }
-
-    .child-wrapper::after {
-        top: -15px;
-    }
-
-    /* Font Scaling for Tree Children */
-    .tree-children .info-card {
+    body {
         padding: 10px;
-        /* Even smaller padding for tree nodes */
     }
 
-    .tree-children .card-header {
-        font-size: 0.85rem;
-        /* Smaller title */
-        margin-bottom: 6px;
+    h1 {
+        font-size: 2rem;
     }
 
-    .tree-children .card-body {
-        font-size: 0.75rem;
-        /* Smaller text */
-        line-height: 1.3;
+    .scroll-container {
+        padding: 5px;
     }
 
-    .tree-children .card-body li {
-        padding-left: 10px;
-        margin-bottom: 4px;
-    }
-
-    .tree-children .card-body li::before {
-        font-size: 0.8em;
-    }
-
-    /* Global Font Adjustments on Mobile */
-    .section-title {
-        font-size: 1.2rem;
-        margin-bottom: 12px;
-    }
-
-    .top-bar h2 {
-        font-size: 0.95rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 150px;
-    }
-
-    .strategy-text {
-        font-size: 0.9rem;
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }

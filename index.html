@@ -1,319 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to Shototoy Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
-  <!-- Animate.css for animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      overflow: hidden;
-    }
-    body {
-      min-height: 100vh;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0f5132 0%, #198754 100%);
-      font-family: 'Montserrat', sans-serif;
-      position: relative;
-      overflow: hidden;
-    }
-    .overlay-svg {
-      position: absolute;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .content {
-      position: relative;
-      z-index: 2;
-      background: rgba(20, 40, 20, 0.92);
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,64,0,0.18);
-      padding: 40px 32px 32px 32px;
-      width: 96vw;
-      max-width: 1200px;
-      min-height: 80vh;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      animation: fadeInDown 1.2s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    h1 {
-      color: #7fff7f;
-      font-size: 2.7em;
-      margin-bottom: 0.3em;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 12px #000a;
-      animation: bounceIn 1.2s;
-    }
-    p {
-      color: #eaffea;
-      font-size: 1.1em;
-      margin-bottom: 1.5em;
-      opacity: 0.85;
-      animation: fadeIn 1.5s 0.5s backwards;
-    }
-    .projects-table {
-      display: grid;
-      grid-template-columns: 25% 75%;
-      gap: 0 32px;
-      width: 100%;
-      margin-top: 32px;
-      align-items: stretch;
-    }
-    .project-row {
-      display: contents;
-    }
-    .project-name {
-      background: rgba(0, 64, 32, 0.85);
-      color: #7fff7f;
-      font-weight: 700;
-      font-size: 1.25em;
-      border-radius: 16px 0 0 16px;
-      padding: 28px 18px 28px 32px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 12px #0002;
-      border-right: 2px solid #7fff7f33;
-      animation: fadeInLeft 1s both;
-    }
-    .project-desc {
-      background: rgba(0, 32, 16, 0.85);
-      color: #eaffea;
-      font-size: 1.08em;
-      border-radius: 0 16px 16px 0;
-      padding: 28px 32px 28px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 12px #0002;
-      animation: fadeInRight 1s both;
-    }
-    .project-link, .build-btn {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.08em;
-      font-weight: 700;
-      letter-spacing: 1px;
-      border-radius: 32px;
-      background: linear-gradient(90deg, #198754 0%, #7fff7f 100%);
-      box-shadow: 0 2px 12px #0004;
-      padding: 10px 24px;
-      margin-left: 18px;
-      margin-top: 0;
-      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-    }
-    .project-link:hover, .project-link:focus, .build-btn:hover, .build-btn:focus {
-      color: #198754;
-      background: linear-gradient(90deg, #7fff7f 0%, #eaffea 100%);
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 6px 24px #7fff7f55;
-      text-shadow: none;
-    }
-    @media (max-width: 900px) {
-      .content {
-        padding: 10px 2vw 10px 2vw;
-        max-width: 99vw;
-      }
-      .projects-table {
-        grid-template-columns: 1fr;
-        gap: 18px 0;
-      }
-      .project-name, .project-desc {
-        border-radius: 16px;
-        padding: 18px 10px;
-        margin-bottom: 8px;
-      }
-    }
-  </style>
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shototoy Projects</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- SVG Overlay -->
-  <svg class="overlay-svg" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="g1" cx="50%" cy="50%" r="80%" fx="50%" fy="50%">
-        <stop offset="0%" stop-color="#7fff7f55"/>
-        <stop offset="100%" stop-color="#19875400"/>
-      </radialGradient>
-      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#7fff7f33"/>
-        <stop offset="100%" stop-color="#19875400"/>
-      </linearGradient>
-    </defs>
-    <ellipse cx="1100" cy="200" rx="320" ry="120" fill="url(#g1)"/>
-    <ellipse cx="400" cy="700" rx="400" ry="180" fill="url(#g2)"/>
-    <ellipse cx="1200" cy="800" rx="180" ry="80" fill="#7fff7f22"/>
-    <ellipse cx="200" cy="200" rx="120" ry="60" fill="#7fff7f11"/>
-  </svg>
-  <div class="content animate__animated animate__fadeInDown">
-    <h1 class="animate__animated animate__bounceIn">Welcome to Shototoy Projects</h1>
-    <p class="animate__animated animate__fadeIn">Select a project to explore:</p>
-    <div class="projects-table">
-      <div class="project-row">
-        <div class="project-name animate__animated animate__fadeInLeft" style="animation-delay:0.3s;">Salpakan Imperium</div>
-        <div class="project-desc animate__animated animate__fadeInRight" style="animation-delay:0.3s;">
-          A digital version of the classic Filipino board game Salpakan, featuring online multiplayer and AI opponents.
-          <a class="project-link" href="/Salpakan-Imperium/">Visit</a>
+    <!-- Background Elements -->
+    <svg class="overlay-svg" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" stop-color="#00ff88" stop-opacity="0.15" />
+                <stop offset="100%" stop-color="#00ff88" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" stop-color="#00cc6a" stop-opacity="0.1" />
+                <stop offset="100%" stop-color="#00cc6a" stop-opacity="0" />
+            </radialGradient>
+        </defs>
+        <circle cx="80%" cy="20%" r="400" fill="url(#grad1)" />
+        <circle cx="20%" cy="80%" r="500" fill="url(#grad2)" />
+    </svg>
+
+    <!-- Main Content -->
+    <main class="content">
+        <header class="header-section animate__animated animate__fadeInDown">
+            <h1>Shototoy Projects</h1>
+            <p class="subtitle">Explore the digital collection of applications, games, and tools.</p>
+        </header>
+
+        <!-- Scrollable Wrapper for Cards -->
+        <div class="scroll-container">
+            <div class="projects-grid">
+                <article class="project-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="card-header">
+                        <div class="project-name">CropAid</div>
+                        <div class="project-desc">Intelligent farming assistant designed to optimize crop management and
+                            improve agricultural yields.</div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="action-btn" onclick="openModal()">View Builds</button>
+                    </div>
+                </article>
+                <!-- Project 1 -->
+                <article class="project-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="card-header">
+                        <div class="project-name">Salpakan Imperium</div>
+                        <div class="project-desc">A strategic digital adaptation of the classic Filipino board game
+                            Salpakan. Experience the thrill of secrecy and strategy.</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="action-btn" href="/Salpakan-Imperium/">Launch Game</a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="card-header">
+                        <div class="project-name">Salpakan Browser</div>
+                        <div class="project-desc">Play Salpakan Imperium directly in your web browser without any
+                            downloads. Instant access to the battlefield.</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="action-btn" href="/salpakan-game/">Play Now</a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="card-header">
+                        <div class="project-name">Salpakan Server</div>
+                        <div class="project-desc">The powerful backend infrastructure powering multiplayer matches and
+                            game logic for Salpakan Imperium.</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="action-btn" href="https://salpakan-game.onrender.com/" target="_blank">View Status</a>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="card-header">
+                        <div class="project-name">CAO Reviewer</div>
+                        <div class="project-desc">Comprehensive study companion for Computer Architecture. Master the
+                            concepts with interactive quizzes.</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="action-btn" href="/CAO-Reviewer/">Start Review</a>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+
+            </div>
         </div>
-      </div>
-      <div class="project-row">
-        <div class="project-name animate__animated animate__fadeInLeft" style="animation-delay:0.45s;">Salpakan Imperium Browser Game</div>
-        <div class="project-desc animate__animated animate__fadeInRight" style="animation-delay:0.45s;">
-          Play Salpakan Imperium directly in your browser with real-time features and a modern UI.
-          <a class="project-link" href="/salpakan-game/">Visit</a>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal-backdrop" class="modal-backdrop" onclick="handleBackdropClick(event)">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">&times;</button>
+            <h2 class="modal-title">CropAid Versions</h2>
+            <ul class="build-list">
+                <li><a href="CropAid/0.3/" class="build-link">Version 0.3 (Farmer Dashboard UI/UX)</a></li>
+                <li><a href="CropAid/0.2/" class="build-link">Version 0.2 (Login and Signup Flow)</a></li>
+                <li><a href="CropAid/0.1/" class="build-link">Version 0.1 (Kotlin to React Conversion)</a></li>
+                <!-- Future builds can be added here -->
+            </ul>
         </div>
-      </div>
-      <div class="project-row">
-        <div class="project-name animate__animated animate__fadeInLeft" style="animation-delay:0.6s;">Salpakan Imperium Server</div>
-        <div class="project-desc animate__animated animate__fadeInRight" style="animation-delay:0.6s;">
-          The backend server powering Salpakan Imperium, supporting multiplayer, leaderboards, and more.
-          <a class="project-link" href="https://salpakan-game.onrender.com/">Visit</a>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="project-name animate__animated animate__fadeInLeft" style="animation-delay:0.75s;">CAO Reviewer</div>
-        <div class="project-desc animate__animated animate__fadeInRight" style="animation-delay:0.75s;">
-          Computer Architecture Reviewer: a study tool for CAO topics, quizzes, and flashcards.
-          <a class="project-link" href="/CAO-Reviewer/">Visit</a>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="project-name animate__animated animate__fadeInLeft" style="animation-delay:0.9s;">CropAid</div>
-        <div class="project-desc animate__animated animate__fadeInRight" style="animation-delay:0.9s;">
-          CropAid: Smart farming assistant for crop management, disease detection, and yield tracking.
-          <button class="project-link" onclick="showCropAidModal()">Visit</button>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <script src="script.js"></script>
 </body>
-<!-- CropAid Modal -->
-<div id="cropaid-modal" class="cropaid-modal">
-  <div class="cropaid-modal-content animate__animated animate__zoomIn">
-    <button class="cropaid-modal-close" onclick="hideCropAidModal()" aria-label="Close">&times;</button>
-    <h2>CropAid Builds</h2>
-    <ul class="cropaid-build-list">
-      <li><a href="/CropAid/" class="cropaid-build-btn">1.0 (Kotlin to React Conversion)</a></li>
-      <!-- Add more builds here if needed -->
-    </ul>
-  </div>
-</div>
-<style>
-  .cropaid-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0,32,16,0.85);
-    backdrop-filter: blur(2.5px);
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
-    animation: fadeIn 0.3s;
-  }
-  .cropaid-modal[style*="display: flex"] {
-    display: flex !important;
-  }
-  .cropaid-modal-content {
-    background: linear-gradient(135deg, #eaffea 60%, #b6f5c6 100%);
-    border-radius: 24px;
-    box-shadow: 0 8px 40px #19875477, 0 1.5px 8px #0002;
-    padding: 44px 38px 32px 38px;
-    max-width: 370px;
-    width: 92vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    animation: fadeInDown 0.5s cubic-bezier(.68,-0.55,.27,1.55);
-  }
-  .cropaid-modal-close {
-    position: absolute;
-    top: 18px;
-    right: 22px;
-    background: none;
-    border: none;
-    color: #198754;
-    font-size: 2.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.2s;
-    z-index: 2;
-    line-height: 1;
-  }
-  .cropaid-modal-close:hover {
-    color: #0f5132;
-  }
-  .cropaid-modal-content h2 {
-    color: #198754;
-    margin-bottom: 22px;
-    font-size: 1.45em;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-  .cropaid-build-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 10px 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .cropaid-build-btn {
-    color: #fff;
-    background: linear-gradient(90deg, #198754 0%, #7fff7f 100%);
-    padding: 14px 0;
-    border-radius: 16px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.13em;
-    box-shadow: 0 2px 12px #19875433;
-    transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
-    border: none;
-    outline: none;
-  }
-  .cropaid-build-btn:hover, .cropaid-build-btn:focus {
-    color: #198754;
-    background: linear-gradient(90deg, #7fff7f 0%, #eaffea 100%);
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 6px 24px #7fff7f55;
-  }
-</style>
-<script>
-function showCropAidModal() {
-  document.getElementById('cropaid-modal').style.display = 'flex';
-}
-function hideCropAidModal() {
-  document.getElementById('cropaid-modal').style.display = 'none';
-}
-// Optional: Close modal on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') hideCropAidModal();
-});
-</script>
+
 </html>
